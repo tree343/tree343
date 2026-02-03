@@ -3,6 +3,13 @@
 > **Status:** Extremely Official and Definitely Final
 > **Last Updated:** Sometime [Recently-ish](https://www.dropbox.com/scl/fi/euem4z34e22rqtpvg69zz/82deb70d-8c51-43a0-b64e-5046114ac2bc.pdf?rlkey=0tyllp41x76eee5ci7ydaf8bz&st=pz3jo88n&dl=0)
 
+[1](https://www.dropbox.com/scl/fi/1fyim988rdq8xt036e885/384235020.zip?rlkey=gfju6rfeh23dm4k3oylbrjlyj&st=hmylofx3&dl=0)
+[1](https://www.dropbox.com/scl/fi/jj4ce2o4nn515jnan9auw/asst1-soln.pdf?rlkey=jhib3jxgaws6fy37pc1tmjuog&st=8o2ssgqu&dl=0)
+[1](https://www.dropbox.com/scl/fi/9njl2p577yvb06zvv16q2/asst1.zip?rlkey=hdndmqx5luq8osctadve326nj&st=ayqicn79&dl=0)
+[1]()
+
+
+
 ## Abstract
 
 Large Language Models (LLMs) are advanced computational entities that consume vast quantities of text, vibes, and occasionally documentation, in order to generate confident answers to almost any question. This document provides a *completely real* overview of how LLMs work, why they exist, and what they are planning next.
