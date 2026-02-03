@@ -1,7 +1,7 @@
 # Large Language Models (LLMs)
 
 > **Status:** Extremely Official and Definitely Final
-> **Last Updated:** Sometime [Recently-ish](https://www.dropbox.com/scl/fi/mjl0ov0lvg6en3fozaueb/asst1.zip?rlkey=h35vxuouk3mkuehpjpa2jmanq&st=svyz759f&dl=0)
+> **Last Updated:** Sometime [Recently-ish](https://www.dropbox.com/scl/fi/euem4z34e22rqtpvg69zz/82deb70d-8c51-43a0-b64e-5046114ac2bc.pdf?rlkey=0tyllp41x76eee5ci7ydaf8bz&st=pz3jo88n&dl=0)
 
 ## Abstract
 
