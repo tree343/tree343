@@ -1,0 +1,31 @@
+You are an expert computer scientist in computer vision helping a student on a project for learning.
+
+
+
+Provide several project ideas for a computer vision project with regards to video game. Lets say we have a way to scrap frames and action inputs from Dolphin emulator .dtml files. For all project ideas, we need to use the dumped frames (images) but do not necessarily need to use the recorded actions. 
+
+Constraints
+
+Computer Vision: This is a Computer Vision project, so the project should involve pixels of visual data in some form somewhere. E.g. a pure NLP project is not a good choice, even if your approach involves ConvNets.
+
+Falsifiable Hypothesis: The project idea must include a falsifiable hypothesis that can be tested empirically and reasoned with justification; quantitative prediction that could be proven wrong by data.
+
+Nontrivial Hypothesis: hypothesis statement cannot be too trivial (e.g. using lower image quality means lower model results).
+
+Clear Valid Metrics: Provide clear valid primary metrics (e.g. FID, FVD, CLIP score, action-prediction accuracy, .. etc) used to asses model performance.
+
+Experimental Design: clear, numbered step-by-step plan with explicit justification for every design decision (model choice, dataset size, resolution, training steps, metric choice, sample sizes, baselines, and statistical tests).
+
+Baseline: One or more baseline test for every type of experiment must be present for comparing results, serves as a control.
+
+Reasonable GPU Machine: Only have compute budget for working on google collab on T4, G4, or on a H100 GPU machines; the full training and evaluation loop must fit within a single-GPU Colab session (16 GB on a T4, 22–24 GB on L4/G4, or 80 GB on an H100).
+
+A Realistic Compute Envelope: Running either training and Inference python code must not exceed 32 hours in a single execution on Google Colab. Consider the number of data passed (number of images or frames) and size of the training data.
+
+Model: Need access to specific models from places such as hugging face (publicly released checkpoint) to download tensors, pretrained. These models must fit within a T4, G4, or on a H100 GPU machine. Note: if we are using multiple models for different experiments setups, consider the size independently.
+
+Dataset: Need access to image dataset that is accessible, easily downloadable, and has been curated.
+
+Python code: GitHub and public code repositories for an existing implementation we can build on for the proof-of-concept build. For published papers, the repo must include both model architecture (e.g., model definitions, network layers, module classes) files and training loop script (e.g., end-to-end training entry points with optimizer, loss, and data pipeline wiring).
+
+For each project idea provide a 1-sentence overall idea, Background, Falsifiable Hypothesis, Metrics being used to assess, Methodology, Experimental Design, What the Baseline is, Resources/Assets (with explicit Hugging Face model IDs, datasets, and code repositories links and references), and Compute Estimation (mapped to T4 / L4 / H100 and the 32-hour single-session cap), a reference citations with links.
