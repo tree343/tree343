@@ -1,0 +1,18 @@
+
+
+Project Pitch: Conditioned Verification for High-Throughput Handwritten Math
+Target Category: CS 231N "Domain Specialist"
+The Problem
+Grading the Stanford Math Tournament (SMT) requires manually reviewing over 17,000 messy, handwritten short-answer crops in a single weekend. Pure OCR (generative text extraction) is overkill, highly error-prone, and struggles with the specific noise of competition math (scratch-outs, equivalent forms, margin notes).
+The Dataset
+A proprietary dataset of ~18,000 real-world, ground-truth labeled image crops of student answers from the past 3 years of SMT. The data is highly standardized via an auto-boxing exam template but contains severe real-world noise.
+The Computer Vision Approach
+Instead of generative OCR, the project frames this as a Conditioned Verification Task (Image-Text Matching).
+Input: An image crop of the student's answer ($X$) and the tokenized string of the correct answer ($Y$).
+Output: A binary classification (Match / No Match) and a confidence score.
+Baselines to Test: A Siamese CNN (ResNet) computing cosine similarity between the crop and a rendered image of the target answer, compared against a lightweight Vision-Language verification model (e.g., a frozen CLIP-style setup with a custom linear classification head).
+Where the "Wow" Factor Comes From (The Data Pipeline)
+Because the model relies on proven architectures, the academic rigor will focus entirely on domain-specific data challenges:
+Synthetic Generalization: Overcoming the limited vocabulary of the 18k SMT dataset by programmatically generating a massive pre-training dataset of random mathematical expressions rendered in various handwritten fonts/styles.
+Hard Negative Mining: Generating training pairs of common mathematical mistakes (e.g., target 2.5, image shows $\frac{53}{6}$) so the model learns precise semantic differences rather than just visual similarity.
+Human-in-the-Loop Thresholding: Optimizing the model not for pure accuracy, but for high recall at a specific confidence threshold. The goal is to confidently auto-grade the easy 70% of exams, while actively routing low-confidence or highly messy crops to human graders.
