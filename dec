@@ -614,3 +614,9 @@ Traceback (most recent call last):
 ValueError: loaded state dict contains a parameter group that doesn't match the size of optimizer's group
 
 Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+
+============================================================
+ Training completed in: 0h 0m 43.3s
+ Game: dummy
+ Checkpoints: /content/drive/MyDrive/LeWM_project/stablewm_home/
+============================================================
