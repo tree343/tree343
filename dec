@@ -4,83 +4,84 @@ Training LeWM on /content/drive/MyDrive/LeWM_project/stablewm_home/dummy/dummy.h
   SIGReg lambda:  0.09
   Decoder:        True
   Data:           /content/drive/MyDrive/LeWM_project/stablewm_home/dummy/dummy.h5
-[2026-05-08 04:20:01,089][root][INFO] - Cached 'action' from '/content/drive/MyDrive/LeWM_project/stablewm_home/dummy/dummy.h5'
-[2026-05-08 04:20:01,090][root][INFO] - Cached 'state' from '/content/drive/MyDrive/LeWM_project/stablewm_home/dummy/dummy.h5'
-04:20:01.195 | INFO    (4312, stable_pretraining.backbone.utils) | Created ViT-tiny from scratch with config: {'hidden_size': 192, 'num_hidden_layers': 12, 'num_attention_heads': 3, 'intermediate_size': 768, 'image_size': 224, 'patch_size': 14}
-04:20:01.347 | INFO    (4312, stable_pretraining.data.module) | Setting up DataModule
-04:20:01.348 | INFO    (4312, stable_pretraining.module) | Initializing Module configuration...
-04:20:01.348 | WARNING (4312, stable_pretraining.module) | No hyperparameters provided - hyperparameter logging is disabled.
-04:20:01.350 | INFO    (4312, stable_pretraining.module) | Setting custom forward method.
-04:20:01.350 | INFO    (4312, stable_pretraining.module) | Setting attribute: self.model = <class 'jepa.JEPA'>
-04:20:01.350 | INFO    (4312, stable_pretraining.module) | Setting attribute: self.sigreg = <class 'module.SIGReg'>
-04:20:01.350 | INFO    (4312, stable_pretraining.module) | Setting attribute: self.optim = <class 'dict'>
-04:20:01.350 | INFO    (4312, stable_pretraining.module) | No metrics configuration provided - automatic metric tracking is disabled.
+[2026-05-08 05:05:44,690][root][INFO] - Cached 'action' from '/content/drive/MyDrive/LeWM_project/stablewm_home/dummy/dummy.h5'
+[2026-05-08 05:05:44,691][root][INFO] - Cached 'state' from '/content/drive/MyDrive/LeWM_project/stablewm_home/dummy/dummy.h5'
+05:05:44.858 | INFO    (3745, stable_pretraining.backbone.utils) | Created ViT-tiny from scratch with config: {'hidden_size': 192, 'num_hidden_layers': 12, 'num_attention_heads': 3, 'intermediate_size': 768, 'image_size': 224, 'patch_size': 14}
+05:05:45.383 | INFO    (3745, stable_pretraining.data.module) | Setting up DataModule
+05:05:45.396 | INFO    (3745, stable_pretraining.module) | Initializing Module configuration...
+05:05:45.396 | WARNING (3745, stable_pretraining.module) | No hyperparameters provided - hyperparameter logging is disabled.
+05:05:45.397 | INFO    (3745, stable_pretraining.module) | Setting custom forward method.
+05:05:45.397 | INFO    (3745, stable_pretraining.module) | Setting attribute: self.model = <class 'jepa.JEPA'>
+05:05:45.397 | INFO    (3745, stable_pretraining.module) | Setting attribute: self.sigreg = <class 'module.SIGReg'>
+05:05:45.397 | INFO    (3745, stable_pretraining.module) | Setting attribute: self.optim = <class 'dict'>
+05:05:45.398 | INFO    (3745, stable_pretraining.module) | No metrics configuration provided - automatic metric tracking is disabled.
+ Patched checkpoint: +61 new keys, -0 removed keys
 /usr/local/lib/python3.12/dist-packages/lightning/fabric/connector.py:571: `precision=bf16` is supported for historical reasons but its usage is discouraged. Please set your precision to bf16-mixed instead!
 Using bfloat16 Automatic Mixed Precision (AMP)
-04:20:01.411 | INFO    (4312, stable_pretraining.callbacks.env_info) | EnvironmentDumpCallback initialized (filename=environment.json, async=True)
-04:20:01.411 | INFO    (4312, stable_pretraining.callbacks.cpu_offload) | ============================================================
-04:20:01.411 | INFO    (4312, stable_pretraining.callbacks.cpu_offload) | Initializing CPUOffloadCallback
-04:20:01.411 | INFO    (4312, stable_pretraining.callbacks.cpu_offload) | Configuration:
-04:20:01.412 | INFO    (4312, stable_pretraining.callbacks.cpu_offload) |   - Offload keys: ['state_dict', 'optimizer_states', 'lr_schedulers']
-04:20:01.412 | INFO    (4312, stable_pretraining.callbacks.cpu_offload) |   - Log all skipped objects: False
-04:20:01.412 | INFO    (4312, stable_pretraining.callbacks.cpu_offload) |   - Will show first/last 10 skipped objects only
-04:20:01.412 | SUCCESS (4312, stable_pretraining.callbacks.cpu_offload) | ✓ CUDA available: 1 GPU(s) detected
-04:20:01.449 | INFO    (4312, stable_pretraining.callbacks.cpu_offload) |   - GPU 0: Tesla T4 (15.6 GB)
-04:20:01.449 | SUCCESS (4312, stable_pretraining.callbacks.cpu_offload) | CPUOffloadCallback initialized successfully
-04:20:01.449 | INFO    (4312, stable_pretraining.callbacks.cpu_offload) | ============================================================
+05:05:49.906 | INFO    (3745, stable_pretraining.callbacks.env_info) | EnvironmentDumpCallback initialized (filename=environment.json, async=True)
+05:05:49.907 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) | ============================================================
+05:05:49.907 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) | Initializing CPUOffloadCallback
+05:05:49.907 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) | Configuration:
+05:05:49.907 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) |   - Offload keys: ['state_dict', 'optimizer_states', 'lr_schedulers']
+05:05:49.907 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) |   - Log all skipped objects: False
+05:05:49.907 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) |   - Will show first/last 10 skipped objects only
+05:05:49.908 | SUCCESS (3745, stable_pretraining.callbacks.cpu_offload) | ✓ CUDA available: 1 GPU(s) detected
+05:05:49.949 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) |   - GPU 0: Tesla T4 (15.6 GB)
+05:05:49.949 | SUCCESS (3745, stable_pretraining.callbacks.cpu_offload) | CPUOffloadCallback initialized successfully
+05:05:49.949 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) | ============================================================
 Adding 10 callbacks from entry point 'stablepretraining_callbacks': ModuleRegistryCallback, LoggingCallback, EnvironmentDumpCallback, TrainerInfo, SklearnCheckpoint, WandbCheckpoint, ModuleSummary, SLURMInfo, LogUnusedParametersOnce, CPUOffloadCallback
 GPU available: True (cuda), used: True
 TPU available: False, using: 0 TPU cores
 💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
-04:20:01.452 | WARNING (4312, stable_pretraining.manager) | User didn't specify seed, runs won't be exactly reproducible!
-04:20:01.455 | INFO    (4312, stable_pretraining.manager) | 📁📁📁 CURRENT WORKING DIR: /content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm 📁📁📁
-04:20:01.455 | INFO    (4312, stable_pretraining.manager) | 🌱🌱🌱 SEEDING EVERYTHING with self.seed=None 🌱🌱🌱
+05:05:49.953 | WARNING (3745, stable_pretraining.manager) | User didn't specify seed, runs won't be exactly reproducible!
+05:05:49.986 | INFO    (3745, stable_pretraining.manager) | 📁📁📁 CURRENT WORKING DIR: /content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm 📁📁📁
+05:05:49.986 | INFO    (3745, stable_pretraining.manager) | 🌱🌱🌱 SEEDING EVERYTHING with self.seed=None 🌱🌱🌱
 /usr/local/lib/python3.12/dist-packages/lightning/fabric/utilities/seed.py:44: No seed found, seed set to 0
 Seed set to 0
-04:20:01.459 | INFO    (4312, stable_pretraining.manager) | 📈📈📈 TensorBoardLogger setup 📈📈📈
-04:20:01.459 | INFO    (4312, stable_pretraining.manager) | 📈📈📈 root_dir=/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm/lightning_logs 📈📈📈
-04:20:01.459 | INFO    (4312, stable_pretraining.manager) | 📈📈📈 save_dir=/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm 📈📈📈
-04:20:01.549 | INFO    (4312, stable_pretraining.manager) | 📈📈📈 log_dir=/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm/lightning_logs/version_3 📈📈📈
-04:20:01.549 | INFO    (4312, stable_pretraining.manager) | 	● 👂👂👂 SIGNALS HANDLERS 👂👂👂
-04:20:01.549 | INFO    (4312, stable_pretraining.manager) | 		- SIGUSR1: `0`
-04:20:01.549 | INFO    (4312, stable_pretraining.manager) | 		- SIGUSR2: `0`
-04:20:01.549 | INFO    (4312, stable_pretraining.manager) | 		- SIGCONT: `0`
-04:20:01.550 | INFO    (4312, stable_pretraining.manager) | 		- SIGTERM: `0`
-04:20:01.550 | INFO    (4312, stable_pretraining.manager) | 	● 📞📞📞 CALLBACKS 📞📞📞
-04:20:01.550 | INFO    (4312, stable_pretraining.manager) | 		 - we found 15 callbacks
-04:20:01.550 | INFO    (4312, stable_pretraining.manager) | 	● 📞📞📞 CHECKPOINTING SETUP 📞📞📞
-04:20:01.552 | WARNING (4312, stable_pretraining.manager) | 		 Checkpoint mismatch: `manager.ckpt_path` (/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/stablewm_home/lewm_weights.ckpt) was provided, but no matching `ModelCheckpoint` callback was found.
-04:20:01.552 | WARNING (4312, stable_pretraining.manager) | 		 Automatically creating a `ModelCheckpoint` to save to the specified path to prevent data loss.
-04:20:01.553 | WARNING (4312, stable_pretraining.manager) | 		 - Automatic `ModelCheckpoint` callback has been added to the trainer.
-04:20:01.554 | INFO    (4312, stable_pretraining.manager) | 📣📣📣 CALLING trainer.fit with ckpt_path='/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/stablewm_home/lewm_weights.ckpt' 📣📣📣
+05:05:49.993 | INFO    (3745, stable_pretraining.manager) | 📈📈📈 TensorBoardLogger setup 📈📈📈
+05:05:49.993 | INFO    (3745, stable_pretraining.manager) | 📈📈📈 root_dir=/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm/lightning_logs 📈📈📈
+05:05:49.993 | INFO    (3745, stable_pretraining.manager) | 📈📈📈 save_dir=/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm 📈📈📈
+05:05:50.913 | INFO    (3745, stable_pretraining.manager) | 📈📈📈 log_dir=/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm/lightning_logs/version_4 📈📈📈
+05:05:50.913 | INFO    (3745, stable_pretraining.manager) | 	● 👂👂👂 SIGNALS HANDLERS 👂👂👂
+05:05:50.913 | INFO    (3745, stable_pretraining.manager) | 		- SIGUSR1: `0`
+05:05:50.913 | INFO    (3745, stable_pretraining.manager) | 		- SIGUSR2: `0`
+05:05:50.913 | INFO    (3745, stable_pretraining.manager) | 		- SIGCONT: `0`
+05:05:50.913 | INFO    (3745, stable_pretraining.manager) | 		- SIGTERM: `0`
+05:05:50.913 | INFO    (3745, stable_pretraining.manager) | 	● 📞📞📞 CALLBACKS 📞📞📞
+05:05:50.913 | INFO    (3745, stable_pretraining.manager) | 		 - we found 15 callbacks
+05:05:50.913 | INFO    (3745, stable_pretraining.manager) | 	● 📞📞📞 CHECKPOINTING SETUP 📞📞📞
+05:05:50.915 | WARNING (3745, stable_pretraining.manager) | 		 Checkpoint mismatch: `manager.ckpt_path` (/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/stablewm_home/lewm_weights.ckpt) was provided, but no matching `ModelCheckpoint` callback was found.
+05:05:50.915 | WARNING (3745, stable_pretraining.manager) | 		 Automatically creating a `ModelCheckpoint` to save to the specified path to prevent data loss.
+05:05:50.917 | WARNING (3745, stable_pretraining.manager) | 		 - Automatic `ModelCheckpoint` callback has been added to the trainer.
+05:05:50.917 | INFO    (3745, stable_pretraining.manager) | 📣📣📣 CALLING trainer.fit with ckpt_path='/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/stablewm_home/lewm_weights.ckpt' 📣📣📣
 💡 Tip: For seamless cloud uploads and versioning, try installing [litmodels](https://pypi.org/project/litmodels/) to enable LitModelCheckpoint, which syncs automatically with the Lightning model registry.
-2026-05-08 04:20:02.169910: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2026-05-08 05:05:51.873381: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-04:20:04.445 | INFO    (4312, stable_pretraining.data.module) | dataset for TrainerFn.FITTING loaded!  ✅
-04:20:04.445 | INFO    (4312, stable_pretraining.data.module) | 	● setup was done by user
-04:20:04.446 | INFO    (4312, stable_pretraining.callbacks.env_info) | ======================================================================
-04:20:04.446 | INFO    (4312, stable_pretraining.callbacks.env_info) | 🔍 Starting environment configuration dump...
-04:20:04.446 | INFO    (4312, stable_pretraining.callbacks.env_info) | ======================================================================
-04:20:04.446 | INFO    (4312, stable_pretraining.callbacks.env_info) | EnvironmentDumpCallback  log_dir=PosixPath('/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm')
-04:20:04.446 | INFO    (4312, stable_pretraining.callbacks.env_info) | ⚡ Running environment dump in background thread (non-blocking)
-04:20:04.446 | INFO    (4312, stable_pretraining.callbacks.env_info) | 📁 Log directory: /content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm
-04:20:04.447 | INFO    (4312, stable_pretraining.callbacks.env_info) | 📊 Collecting environment information...
-04:20:04.447 | SUCCESS (4312, stable_pretraining.callbacks.env_info) | ✓ Background thread started successfully
-04:20:04.447 | SUCCESS (4312, stable_pretraining.callbacks.env_info) |   ✓ Python 3.12.13
-04:20:04.447 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | 	 linking trainer to DataModule! 🔧
-04:20:04.447 | SUCCESS (4312, stable_pretraining.callbacks.env_info) |   ✓ System: Linux 6.6.113+ (x86_64)
-04:20:04.448 | INFO    (4312, stable_pretraining.callbacks.checkpoint_sklearn) | Setting up SklearnCheckpoint callback!
-04:20:04.448 | INFO    (4312, stable_pretraining.callbacks.env_info) |      Hostname: 5dce643bf799
-04:20:04.448 | INFO    (4312, stable_pretraining.callbacks.checkpoint_sklearn) | Sklearn Modules:
-04:20:04.451 | INFO    (4312, stable_pretraining.callbacks.checkpoint_sklearn) | 
+05:05:54.184 | INFO    (3745, stable_pretraining.data.module) | dataset for TrainerFn.FITTING loaded!  ✅
+05:05:54.185 | INFO    (3745, stable_pretraining.data.module) | 	● setup was done by user
+05:05:54.185 | INFO    (3745, stable_pretraining.callbacks.env_info) | ======================================================================
+05:05:54.185 | INFO    (3745, stable_pretraining.callbacks.env_info) | 🔍 Starting environment configuration dump...
+05:05:54.185 | INFO    (3745, stable_pretraining.callbacks.env_info) | ======================================================================
+05:05:54.185 | INFO    (3745, stable_pretraining.callbacks.env_info) | EnvironmentDumpCallback  log_dir=PosixPath('/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm')
+05:05:54.185 | INFO    (3745, stable_pretraining.callbacks.env_info) | ⚡ Running environment dump in background thread (non-blocking)
+05:05:54.186 | INFO    (3745, stable_pretraining.callbacks.env_info) | 📁 Log directory: /content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm
+05:05:54.186 | INFO    (3745, stable_pretraining.callbacks.env_info) | 📊 Collecting environment information...
+05:05:54.186 | SUCCESS (3745, stable_pretraining.callbacks.env_info) | ✓ Background thread started successfully
+05:05:54.187 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | 	 linking trainer to DataModule! 🔧
+05:05:54.186 | SUCCESS (3745, stable_pretraining.callbacks.env_info) |   ✓ Python 3.12.13
+05:05:54.187 | INFO    (3745, stable_pretraining.callbacks.checkpoint_sklearn) | Setting up SklearnCheckpoint callback!
+05:05:54.187 | SUCCESS (3745, stable_pretraining.callbacks.env_info) |   ✓ System: Linux 6.6.113+ (x86_64)
+05:05:54.187 | INFO    (3745, stable_pretraining.callbacks.checkpoint_sklearn) | Sklearn Modules:
+05:05:54.187 | INFO    (3745, stable_pretraining.callbacks.env_info) |      Hostname: 0c69be7cec07
+05:05:54.189 | INFO    (3745, stable_pretraining.callbacks.checkpoint_sklearn) | 
 ┏━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┓
 ┃ Module   ┃ Name   ┃ Type   ┃
 ┣━━━━━━━━━━╋━━━━━━━━╋━━━━━━━━┫
 ┗━━━━━━━━━━┻━━━━━━━━┻━━━━━━━━┛
-04:20:04.451 | INFO    (4312, stable_pretraining.callbacks.checkpoint_sklearn) | Setting up WandbCheckpoint callback!
-04:20:04.452 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | PyTorch Modules:
-04:20:04.452 | WARNING (4312, stable_pretraining.module) | You are calling self.parameters which also gives callbacks parameters, to remove then, pass `with_callbacks=False`
-04:20:04.492 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | \n+-----------------------------------------------------------------+----------------------+--------------------------+--------------------------+---------+
+05:05:54.189 | INFO    (3745, stable_pretraining.callbacks.checkpoint_sklearn) | Setting up WandbCheckpoint callback!
+05:05:54.190 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | PyTorch Modules:
+05:05:54.190 | WARNING (3745, stable_pretraining.module) | You are calling self.parameters which also gives callbacks parameters, to remove then, pass `with_callbacks=False`
+05:05:54.216 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | \n+-----------------------------------------------------------------+----------------------+--------------------------+--------------------------+---------+
 | Module                                                          | Trainable parameters | Non Trainable parameters | Uninitialized parameters | Buffers |
 +-----------------------------------------------------------------+----------------------+--------------------------+--------------------------+---------+
 |                                                                 |             25580412 |                        0 |                        0 |    8245 |
@@ -497,49 +498,92 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 | model.decoder.output_proj                                       |               295680 |                        0 |                        0 |       0 |
 | sigreg                                                          |                    0 |                        0 |                        0 |      51 |
 +-----------------------------------------------------------------+----------------------+--------------------------+--------------------------+---------+
-04:20:04.591 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | ---- SLURM INFO ---- 🔧
-04:20:04.591 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | Job ID: N/A
-04:20:04.591 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | Task ID: N/A
-04:20:04.591 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | Job Name: N/A
-04:20:04.591 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | Nodes: N/A
-04:20:04.591 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | Tasks: N/A
-04:20:04.592 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | CPUs per node: N/A
-04:20:04.592 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | CPUs per task: N/A
-04:20:04.592 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | Memory per node: N/A
-04:20:04.592 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | Memory per CPU: N/A
-04:20:04.593 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | Time limit: N/A
-04:20:04.593 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | Partition: N/A
-04:20:04.593 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | Node List: N/A
-04:20:04.593 | INFO    (4312, stable_pretraining.callbacks.trainer_info) | Submit Directory: N/A
-04:20:04.594 | INFO    (4312, stable_pretraining.callbacks.cpu_offload) | CPUOffloadCallback: Setup called for stage 'TrainerFn.FITTING'
-04:20:04.594 | INFO    (4312, stable_pretraining.callbacks.cpu_offload) |   - Trainer rank: 0/1
-04:20:04.594 | INFO    (4312, stable_pretraining.callbacks.cpu_offload) |   - Strategy: SingleDeviceStrategy
-04:20:04.594 | SUCCESS (4312, stable_pretraining.callbacks.cpu_offload) | ✓ Strategy 'SingleDeviceStrategy' is compatible with CPU offload
-04:20:04.594 | SUCCESS (4312, stable_pretraining.callbacks.cpu_offload) | ✓ CPUOffloadCallback ENABLED for strategy 'SingleDeviceStrategy'
-04:20:04.595 | INFO    (4312, stable_pretraining.callbacks.cpu_offload) |   - This rank will handle checkpoint saving and CPU offload
+05:05:54.347 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | ---- SLURM INFO ---- 🔧
+05:05:54.348 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | Job ID: N/A
+05:05:54.348 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | Task ID: N/A
+05:05:54.348 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | Job Name: N/A
+05:05:54.348 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | Nodes: N/A
+05:05:54.348 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | Tasks: N/A
+05:05:54.349 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | CPUs per node: N/A
+05:05:54.349 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | CPUs per task: N/A
+05:05:54.349 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | Memory per node: N/A
+05:05:54.349 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | Memory per CPU: N/A
+05:05:54.349 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | Time limit: N/A
+05:05:54.349 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | Partition: N/A
+05:05:54.349 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | Node List: N/A
+05:05:54.349 | INFO    (3745, stable_pretraining.callbacks.trainer_info) | Submit Directory: N/A
+05:05:54.350 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) | CPUOffloadCallback: Setup called for stage 'TrainerFn.FITTING'
+05:05:54.350 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) |   - Trainer rank: 0/1
+05:05:54.350 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) |   - Strategy: SingleDeviceStrategy
+05:05:54.350 | SUCCESS (3745, stable_pretraining.callbacks.cpu_offload) | ✓ Strategy 'SingleDeviceStrategy' is compatible with CPU offload
+05:05:54.350 | SUCCESS (3745, stable_pretraining.callbacks.cpu_offload) | ✓ CPUOffloadCallback ENABLED for strategy 'SingleDeviceStrategy'
+05:05:54.350 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) |   - This rank will handle checkpoint saving and CPU offload
 /usr/local/lib/python3.12/dist-packages/lightning/pytorch/callbacks/model_checkpoint.py:881: Checkpoint directory /content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/stablewm_home exists and is not empty.
 Restoring states from the checkpoint path at /content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/stablewm_home/lewm_weights.ckpt
-04:20:05.501 | ERROR   (4312, stable_pretraining.callbacks.cpu_offload) | ============================================================
-04:20:05.501 | ERROR   (4312, stable_pretraining.callbacks.cpu_offload) | CPUOffloadCallback: Exception occurred during training
-04:20:05.501 | ERROR   (4312, stable_pretraining.callbacks.cpu_offload) | Exception: RuntimeError: Error(s) in loading state_dict for Module:
-	Missing key(s) in state_dict: "model.decoder.query_tokens", "model.decoder.input_proj.weight", "model.decoder.input_proj.bias", "model.decoder.layers.0.norm_q.weight", "model.decoder.layers.0.norm_q.bias", "model.decoder.layers.0.norm_kv.weight", "model.decoder.layers.0.norm_kv.bias", "model.decoder.layers.0.cross_attn.in_proj_weight", "model.decoder.layers.0.cross_attn.in_proj_bias", "model.decoder.layers.0.cross_attn.out_proj.weight", "model.decoder.layers.0.cross_attn.out_proj.bias", "model.decoder.layers.0.norm2.weight", "model.decoder.layers.0.norm2.bias", "model.decoder.layers.0.mlp.0.weight", "model.decoder.layers.0.mlp.0.bias", "model.decoder.layers.0.mlp.2.weight", "model.decoder.layers.0.mlp.2.bias", "model.decoder.layers.1.norm_q.weight", "model.decoder.layers.1.norm_q.bias", "model.decoder.layers.1.norm_kv.weight", "model.decoder.layers.1.norm_kv.bias", "model.decoder.layers.1.cross_attn.in_proj_weight", "model.decoder.layers.1.cross_attn.in_proj_bias", "model.decoder.layers.1.cross_attn.out_proj.weight", "model.decoder.layers.1.cross_attn.out_proj.bias", "model.decoder.layers.1.norm2.weight", "model.decoder.layers.1.norm2.bias", "model.decoder.layers.1.mlp.0.weight", "model.decoder.layers.1.mlp.0.bias", "model.decoder.layers.1.mlp.2.weight", "model.decoder.layers.1.mlp.2.bias", "model.decoder.layers.2.norm_q.weight", "model.decoder.layers.2.norm_q.bias", "model.decoder.layers.2.norm_kv.weight", "model.decoder.layers.2.norm_kv.bias", "model.decoder.layers.2.cross_attn.in_proj_weight", "model.decoder.layers.2.cross_attn.in_proj_bias", "model.decoder.layers.2.cross_attn.out_proj.weight", "model.decoder.layers.2.cross_attn.out_proj.bias", "model.decoder.layers.2.norm2.weight", "model.decoder.layers.2.norm2.bias", "model.decoder.layers.2.mlp.0.weight", "model.decoder.layers.2.mlp.0.bias", "model.decoder.layers.2.mlp.2.weight", "model.decoder.layers.2.mlp.2.bias", "model.decoder.layers.3.norm_q.weight", "model.decoder.layers.3.norm_q.bias", "model.decoder.layers.3.norm_kv.weight", "model.decoder.layers.3.norm_kv.bias", "model.decoder.layers.3.cross_attn.in_proj_weight", "model.decoder.layers.3.cross_attn.in_proj_bias", "model.decoder.layers.3.cross_attn.out_proj.weight", "model.decoder.layers.3.cross_attn.out_proj.bias", "model.decoder.layers.3.norm2.weight", "model.decoder.layers.3.norm2.bias", "model.decoder.layers.3.mlp.0.weight", "model.decoder.layers.3.mlp.0.bias", "model.decoder.layers.3.mlp.2.weight", "model.decoder.layers.3.mlp.2.bias", "model.decoder.output_proj.weight", "model.decoder.output_proj.bias". 
-04:20:05.502 | ERROR   (4312, stable_pretraining.callbacks.cpu_offload) | Callback was enabled: True
-04:20:05.502 | ERROR   (4312, stable_pretraining.callbacks.cpu_offload) | Checkpoints saved before exception: 0
-04:20:05.502 | ERROR   (4312, stable_pretraining.callbacks.cpu_offload) | ============================================================
+05:05:55.296 | INFO    (3745, stable_pretraining.callbacks.checkpoint_sklearn) | Checking for non PyTorch modules to load... 🔧
+05:05:55.296 | INFO    (3745, stable_pretraining.callbacks.checkpoint_sklearn) | Checking for Wandb init params... 🔧
+05:05:55.296 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) | CPUOffloadCallback: Loading state from checkpoint
+05:05:55.296 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) | Restored state:
+05:05:55.296 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) |   - Checkpoint count: 9
+05:05:55.297 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) |   - Total time saved: 1.06s
+05:05:55.297 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) |   - Total memory freed: 0.00 GB
+05:05:55.297 | INFO    (3745, stable_pretraining.callbacks.cpu_offload) |   - Was enabled: True
+/usr/local/lib/python3.12/dist-packages/lightning/pytorch/callbacks/model_checkpoint.py:566: The dirpath has changed from '/content/drive/MyDrive/LeWM_project/stablewm_home' to '/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm/lightning_logs/version_4/checkpoints', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
+/usr/local/lib/python3.12/dist-packages/lightning/pytorch/callbacks/model_checkpoint.py:566: The dirpath has changed from '/content/drive/MyDrive/LeWM_project/stablewm_home' to '/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/stablewm_home', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+05:05:55.386 | INFO    (3745, stable_pretraining.module) | Configuring optimizers and learning rate schedulers...
+05:05:55.387 | INFO    (3745, stable_pretraining.module) | 	Optimizer specified by Dict with keys ['model_opt']... 🔧
+05:05:55.393 | INFO    (3745, stable_pretraining.module) | 
+┏━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Optimizer   ┃ Pattern   ┃   Matched Modules ┃   Param Tensors ┃   Total Params ┃   RequiresGrad Tensors ┃
+┣━━━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃ model_opt   ┃ model     ┃               409 ┃             358 ┃       25580412 ┃                    358 ┃
+┗━━━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━┛
+05:05:55.394 | INFO    (3745, stable_pretraining.optim.lr_scheduler) | 	User provided a dict
+Loading `train_dataloader` to estimate number of stepping batches.
+/usr/local/lib/python3.12/dist-packages/lightning/pytorch/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+05:05:55.444 | SUCCESS (3745, stable_pretraining.callbacks.env_info) |   ✓ Packages: 736 packages collected in 1.25s
+05:05:55.502 | SUCCESS (3745, stable_pretraining.callbacks.env_info) |   ✓ NVIDIA Driver: 580.82.07
+/usr/local/lib/python3.12/dist-packages/lightning/pytorch/loops/fit_loop.py:317: The number of training batches (1) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+05:05:55.541 | INFO    (3745, stable_pretraining.module) | Configured optimizer 'model_opt' (modules=409, param_tensors=358, total_params=25580412) with LinearWarmupCosineAnnealingLR scheduler.
+/usr/local/lib/python3.12/dist-packages/lightning/pytorch/utilities/model_summary/model_summary.py:242: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+05:05:55.549 | WARNING (3745, stable_pretraining.module) | You are calling self.parameters which also gives callbacks parameters, to remove then, pass `with_callbacks=False`
+05:05:55.553 | WARNING (3745, stable_pretraining.module) | You are calling self.parameters which also gives callbacks parameters, to remove then, pass `with_callbacks=False`
+05:05:55.555 | WARNING (3745, stable_pretraining.module) | You are calling self.parameters which also gives callbacks parameters, to remove then, pass `with_callbacks=False`
+05:05:55.558 | WARNING (3745, stable_pretraining.module) | You are calling self.parameters which also gives callbacks parameters, to remove then, pass `with_callbacks=False`
+┏━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name              ┃ Type       ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ callbacks_modules │ ModuleDict │      0 │ train │     0 │
+│ 1 │ callbacks_metrics │ ModuleDict │      0 │ train │     0 │
+│ 2 │ model             │ JEPA       │ 25.6 M │ train │     0 │
+│ 3 │ sigreg            │ SIGReg     │      0 │ train │     0 │
+└───┴───────────────────┴────────────┴────────┴───────┴───────┘
+Trainable params: 25.6 M                                                        
+Non-trainable params: 0                                                         
+Total params: 25.6 M                                                            
+Total estimated model params size (MB): 102                                     
+Modules in train mode: 412                                                      
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+05:05:55.618 | ERROR   (3745, stable_pretraining.callbacks.cpu_offload) | ============================================================
+05:05:55.619 | ERROR   (3745, stable_pretraining.callbacks.cpu_offload) | CPUOffloadCallback: Exception occurred during training
+05:05:55.619 | ERROR   (3745, stable_pretraining.callbacks.cpu_offload) | Exception: ValueError: loaded state dict contains a parameter group that doesn't match the size of optimizer's group
+05:05:55.619 | ERROR   (3745, stable_pretraining.callbacks.cpu_offload) | Callback was enabled: True
+05:05:55.620 | ERROR   (3745, stable_pretraining.callbacks.cpu_offload) | Checkpoints saved before exception: 9
+05:05:55.620 | ERROR   (3745, stable_pretraining.callbacks.cpu_offload) | ============================================================
+05:05:55.805 | SUCCESS (3745, stable_pretraining.callbacks.env_info) |   ✓ Environment: 6 relevant variables captured
+05:05:55.805 | INFO    (3745, stable_pretraining.callbacks.env_info) | 🔄 Serializing environment data...
+05:05:55.831 | INFO    (3745, stable_pretraining.callbacks.env_info) | 📋 File exists, using version 4: environment_v4.json
+05:05:55.833 | INFO    (3745, stable_pretraining.callbacks.env_info) | 📋 File exists, using version 4: requirements_frozen_v4.txt
+05:05:55.833 | INFO    (3745, stable_pretraining.callbacks.env_info) | 📁 Save directory: /content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm
+05:05:55.834 | INFO    (3745, stable_pretraining.callbacks.env_info) | 💾 Writing environment to temp file...
+05:05:55.843 | INFO    (3745, stable_pretraining.callbacks.env_info) | 💾 Moving to: environment_v4.json
+05:05:55.892 | SUCCESS (3745, stable_pretraining.callbacks.env_info) | ✓ Environment file saved (38.4 KB)
 Error executing job with overrides: ['data=dummy', 'trainer.max_epochs=5', 'loader.batch_size=16', 'loss.sigreg.weight=0.09', 'wandb.enabled=False', 'num_workers=2', 'has_decoder=True']
-04:20:05.699 | SUCCESS (4312, stable_pretraining.callbacks.env_info) |   ✓ Packages: 736 packages collected in 1.25s
-04:20:05.755 | SUCCESS (4312, stable_pretraining.callbacks.env_info) |   ✓ NVIDIA Driver: 580.82.07
-04:20:05.763 | SUCCESS (4312, stable_pretraining.callbacks.env_info) |   ✓ Environment: 5 relevant variables captured
-04:20:05.763 | INFO    (4312, stable_pretraining.callbacks.env_info) | 🔄 Serializing environment data...
-04:20:05.765 | INFO    (4312, stable_pretraining.callbacks.env_info) | 📋 File exists, using version 3: environment_v3.json
-04:20:05.767 | INFO    (4312, stable_pretraining.callbacks.env_info) | 📋 File exists, using version 3: requirements_frozen_v3.txt
-04:20:05.767 | INFO    (4312, stable_pretraining.callbacks.env_info) | 📁 Save directory: /content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm
-04:20:05.768 | INFO    (4312, stable_pretraining.callbacks.env_info) | 💾 Writing environment to temp file...
-04:20:05.770 | INFO    (4312, stable_pretraining.callbacks.env_info) | 💾 Moving to: environment_v3.json
-04:20:05.791 | SUCCESS (4312, stable_pretraining.callbacks.env_info) | ✓ Environment file saved (38.4 KB)
-04:20:05.803 | SUCCESS (4312, stable_pretraining.callbacks.env_info) | ✓ Requirements file saved (14.7 KB)
+05:05:55.920 | SUCCESS (3745, stable_pretraining.callbacks.env_info) | ✓ Requirements file saved (14.7 KB)
 Traceback (most recent call last):
-  File "/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm/train.py", line 221, in run
+  File "/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm/train.py", line 239, in run
     manager()
   File "/usr/local/lib/python3.12/dist-packages/stable_pretraining/manager.py", line 258, in __call__
     self._trainer.fit(
@@ -550,23 +594,30 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/usr/local/lib/python3.12/dist-packages/lightning/pytorch/trainer/trainer.py", line 630, in _fit_impl
     self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
-  File "/usr/local/lib/python3.12/dist-packages/lightning/pytorch/trainer/trainer.py", line 1046, in _run
-    self._checkpoint_connector._restore_modules_and_callbacks(ckpt_path, weights_only)
-  File "/usr/local/lib/python3.12/dist-packages/lightning/pytorch/trainer/connectors/checkpoint_connector.py", line 411, in _restore_modules_and_callbacks
-    self.restore_model()
-  File "/usr/local/lib/python3.12/dist-packages/lightning/pytorch/trainer/connectors/checkpoint_connector.py", line 286, in restore_model
-    self.trainer.strategy.load_model_state_dict(
-  File "/usr/local/lib/python3.12/dist-packages/lightning/pytorch/strategies/strategy.py", line 372, in load_model_state_dict
-    self.lightning_module.load_state_dict(checkpoint["state_dict"], strict=strict)
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 2635, in load_state_dict
-    raise RuntimeError(
-RuntimeError: Error(s) in loading state_dict for Module:
-	Missing key(s) in state_dict: "model.decoder.query_tokens", "model.decoder.input_proj.weight", "model.decoder.input_proj.bias", "model.decoder.layers.0.norm_q.weight", "model.decoder.layers.0.norm_q.bias", "model.decoder.layers.0.norm_kv.weight", "model.decoder.layers.0.norm_kv.bias", "model.decoder.layers.0.cross_attn.in_proj_weight", "model.decoder.layers.0.cross_attn.in_proj_bias", "model.decoder.layers.0.cross_attn.out_proj.weight", "model.decoder.layers.0.cross_attn.out_proj.bias", "model.decoder.layers.0.norm2.weight", "model.decoder.layers.0.norm2.bias", "model.decoder.layers.0.mlp.0.weight", "model.decoder.layers.0.mlp.0.bias", "model.decoder.layers.0.mlp.2.weight", "model.decoder.layers.0.mlp.2.bias", "model.decoder.layers.1.norm_q.weight", "model.decoder.layers.1.norm_q.bias", "model.decoder.layers.1.norm_kv.weight", "model.decoder.layers.1.norm_kv.bias", "model.decoder.layers.1.cross_attn.in_proj_weight", "model.decoder.layers.1.cross_attn.in_proj_bias", "model.decoder.layers.1.cross_attn.out_proj.weight", "model.decoder.layers.1.cross_attn.out_proj.bias", "model.decoder.layers.1.norm2.weight", "model.decoder.layers.1.norm2.bias", "model.decoder.layers.1.mlp.0.weight", "model.decoder.layers.1.mlp.0.bias", "model.decoder.layers.1.mlp.2.weight", "model.decoder.layers.1.mlp.2.bias", "model.decoder.layers.2.norm_q.weight", "model.decoder.layers.2.norm_q.bias", "model.decoder.layers.2.norm_kv.weight", "model.decoder.layers.2.norm_kv.bias", "model.decoder.layers.2.cross_attn.in_proj_weight", "model.decoder.layers.2.cross_attn.in_proj_bias", "model.decoder.layers.2.cross_attn.out_proj.weight", "model.decoder.layers.2.cross_attn.out_proj.bias", "model.decoder.layers.2.norm2.weight", "model.decoder.layers.2.norm2.bias", "model.decoder.layers.2.mlp.0.weight", "model.decoder.layers.2.mlp.0.bias", "model.decoder.layers.2.mlp.2.weight", "model.decoder.layers.2.mlp.2.bias", "model.decoder.layers.3.norm_q.weight", "model.decoder.layers.3.norm_q.bias", "model.decoder.layers.3.norm_kv.weight", "model.decoder.layers.3.norm_kv.bias", "model.decoder.layers.3.cross_attn.in_proj_weight", "model.decoder.layers.3.cross_attn.in_proj_bias", "model.decoder.layers.3.cross_attn.out_proj.weight", "model.decoder.layers.3.cross_attn.out_proj.bias", "model.decoder.layers.3.norm2.weight", "model.decoder.layers.3.norm2.bias", "model.decoder.layers.3.mlp.0.weight", "model.decoder.layers.3.mlp.0.bias", "model.decoder.layers.3.mlp.2.weight", "model.decoder.layers.3.mlp.2.bias", "model.decoder.output_proj.weight", "model.decoder.output_proj.bias". 
+  File "/usr/local/lib/python3.12/dist-packages/lightning/pytorch/trainer/trainer.py", line 1070, in _run
+    self._checkpoint_connector.restore_training_state()
+  File "/usr/local/lib/python3.12/dist-packages/lightning/pytorch/trainer/connectors/checkpoint_connector.py", line 309, in restore_training_state
+    self.restore_optimizers_and_schedulers()
+  File "/usr/local/lib/python3.12/dist-packages/lightning/pytorch/trainer/connectors/checkpoint_connector.py", line 379, in restore_optimizers_and_schedulers
+    self.restore_optimizers()
+  File "/usr/local/lib/python3.12/dist-packages/lightning/pytorch/trainer/connectors/checkpoint_connector.py", line 394, in restore_optimizers
+    self.trainer.strategy.load_optimizer_state_dict(self._loaded_checkpoint)
+  File "/usr/local/lib/python3.12/dist-packages/lightning/pytorch/strategies/strategy.py", line 377, in load_optimizer_state_dict
+    optimizer.load_state_dict(opt_state)
+  File "/usr/local/lib/python3.12/dist-packages/torch/_compile.py", line 54, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/_dynamo/eval_frame.py", line 1181, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/optim/optimizer.py", line 947, in load_state_dict
+    raise ValueError(
+ValueError: loaded state dict contains a parameter group that doesn't match the size of optimizer's group
 
 Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
 
 ============================================================
- Training completed in: 0h 0m 21.0s
+ Training completed in: 0h 0m 45.2s
  Game: dummy
  Checkpoints: /content/drive/MyDrive/LeWM_project/stablewm_home/
 ============================================================
