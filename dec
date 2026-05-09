@@ -1,16 +1,1 @@
-Training LeWM on /content/drive/MyDrive/LeWM_project/stablewm_home/dummy/dummy.h5...
-  Epochs:         5
-  Batch size:     16
-  SIGReg lambda:  0.09
-  Decoder:        True
-  Data:           /content/drive/MyDrive/LeWM_project/stablewm_home/dummy/dummy.h5
-no viable alternative at input '{GAME_NAME}'
-See https://hydra.cc/docs/1.2/advanced/override_grammar/basic for details
-
-Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
-
-============================================================
- Training completed in: 0h 0m 13.2s
- Game: dummy
- Checkpoints: /content/drive/MyDrive/LeWM_project/runs/dummy_outputs/
-============================================================
+-
