@@ -1,7 +1,1 @@
-import pandas as pd, glob
-csv = sorted(glob.glob(f"{RUN_DIR}/**/metrics.csv", recursive=True))[-1]
-df = pd.read_csv(csv)
-print([c for c in df.columns if "loss" in c])
-
-['validate/decoder_loss_pred_epoch', 'validate/decoder_loss_pred_step', 'validate/decoder_loss_recon_epoch', 'validate/decoder_loss_recon_step', 'validate/loss_epoch', 'validate/loss_step', 'validate/pred_loss_epoch', 'validate/pred_loss_step', 'validate/reg_loss_epoch', 'validate/reg_loss_step']
-
+-
