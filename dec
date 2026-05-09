@@ -1,35 +1,16 @@
-!python train.py \
-    data={GAME_NAME} \
-    encoder_type="vit_tiny" \
-    output_dir={OUTPUT_DIR} \
-    trainer.max_epochs={MAX_EPOCHS} \
-    loader.batch_size={BATCH_SIZE} \
-    loss.sigreg.weight={SIGREG_LAMBDA} \
-    wandb.enabled=False \
-    num_workers=2 \
-    has_decoder={HAS_DECODER} \
-    # --- Defaults (uncomment any line to override) ---
-    # seed=3072
-    # train_split=0.9
-    # img_size=224
-    # patch_size=14
-    # encoder_scale=tiny
-    # trainer.precision=bf16
-    # trainer.gradient_clip_val=1.0
-    # optimizer.lr=5e-5
-    # optimizer.weight_decay=1e-3
-    # wm.history_size=3
-    # wm.num_preds=1
-    # wm.embed_dim=192
-    # predictor.depth=6
-    # predictor.heads=16
-    # predictor.mlp_dim=2048
-    # predictor.dropout=0.1
-    # predictor.emb_dropout=0.0
-    # decoder_lr=3e-4
-    # decoder.hidden_dim=384
-    # decoder.num_patches=196
-    # decoder.patch_size=16
-    # decoder.num_layers=4
-    # decoder.num_heads=8
-    # num_viz_samples=6
+Training LeWM on /content/drive/MyDrive/LeWM_project/stablewm_home/dummy/dummy.h5...
+  Epochs:         5
+  Batch size:     16
+  SIGReg lambda:  0.09
+  Decoder:        True
+  Data:           /content/drive/MyDrive/LeWM_project/stablewm_home/dummy/dummy.h5
+no viable alternative at input '{GAME_NAME}'
+See https://hydra.cc/docs/1.2/advanced/override_grammar/basic for details
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+
+============================================================
+ Training completed in: 0h 0m 13.2s
+ Game: dummy
+ Checkpoints: /content/drive/MyDrive/LeWM_project/runs/dummy_outputs/
+============================================================
