@@ -1,1 +1,48 @@
 https://www.dropbox.com/scl/fi/nfbnifwhscebqdk276nde/LeWM.zip?rlkey=6manmxcq7q6fwl4vzr7ghykw0&st=7q4xsyou&dl=0
+
+
+
+
+
+
+
+
+
+Look at /Users/arya/Desktop/CS231n_final_project/LeWM/README.md and /Users/arya/Desktop/CS231n_final_project/LeWM/project_notes.md
+
+I need help writing a project proposal
+
+
+clearly describe what problem you're solving, what data you plan to use (if applicable)
+
+what success would look like. It's also important to outline how you plan to evaluate your method (e.g., metrics, baselines, or benchmarks).
+
+Include a brief discussion of a few (at least 3) relevant papers and how your project relates to them
+
+problem motivation, dataset/evaluation setup, expected outcomes, and related work positioning
+
+proposed approach, including the key design choices and the intuition behind them
+
+describe how you plan to use your dataset, what your experimental setup will look like, and how you'll evaluate performance.
+
+method overview (diagrams encouraged), design intuition, baselines, and experimental setup, along with your current implementation plan or progress.
+
+---
+
+We are planning to train the LeWM model on video game dataset: pacman and Mario Kart
+
+the novelty asepct of our project is that we plan to train video game datasets and collect frame and action data on a new 3D video game not shown in previous papers or studies
+
+"LeWorldModel: Stable End-to-End Joint-Embedding Predictive Architecture from Pixels"
+
+the authors said in the paper "In thesimplerTwo-Roomenvironment,PLDMandDINO-WMoutperformLeWM,whichmaybeexplainedby theSIGRegregularizationencouragingaGaussiandistributioninahigh-dimensionallatentspace,whilethe intrinsicdimensionalityoftheenvironmentismuchlower."
+
+the authors said in the paper "Additionally,weexaminetheimpactof theencoderarchitectureby replacingthedefaultViTencoderwithaResNet-18backbone(Tab.8).LeWMachievescompetitive performancewithbotharchitectures, indicatingthat it islargelyagnostictothechoiceofvision encoder.DetailsonallablationsareavailableinApp.G"
+
+In this project we plan to use different encoders and produce images and videos 
+
+Vit, ResNEt-18,  DINOv2 (frozen), DINOv2 finetuned
+
+SegReg and no regulariaation 
+
+IF enough time, we plan to look at the planning process and see succcess metrics 
