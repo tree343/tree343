@@ -1,11 +1,17 @@
-When we run the cell containing train.py in LeWM.ipynb notebook we see
+Error executing job with overrides: ['data=dummy', 'encoder_type=vit_tiny', 'output_dir=/content/drive/MyDrive/LeWM_project/runs/dummy/dummy_run_20260510-053847', 'trainer.max_epochs=5', 'loader.batch_size=16', 'loss.reg_type=sigreg', 'loss.reg_weight=0.09', 'wandb.enabled=False', 'num_workers=2', 'has_decoder=True', 'per_sample_viz=False', 'compute_image_metrics=True', 'compute_latent_metrics=True', 'compute_rollout_metrics=True']
+Traceback (most recent call last):
+  File "/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm/train.py", line 425, in run
+    callbacks.append(ImageMetricsCallback(
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm/metrics.py", line 50, in __init__
+    self.register_buffer("norm_mean", mean.view(1, 3, 1, 1))
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ImageMetricsCallback' object has no attribute 'register_buffer'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
 
 ============================================================
- Training completed in: 0h 2m 45.2s
- Game: dummy
- Checkpoints: /content/drive/MyDrive/LeWM_project/runs/dummy/dummy_run_20260510-031650/
+Training completed in: 0h 0m 35.1s
+  Game: dummy
+  Checkpoints: /content/drive/MyDrive/LeWM_project/runs/dummy/dummy_run_20260510-053847/
 ============================================================
-
-however, in the training_summary/ folder we see "Completed in: 0h 2m 19.4s"
-
-check to make sure the timing reported in the train.py is setup correctly 
