@@ -1,3 +1,719 @@
-https://www.dropbox.com/scl/fi/keslziexahtgmsjgp7hay/LeWM.zip?rlkey=c9cd1xwfye7wgps4sswnr3p6y&st=fqc5whi7&dl=0
+tree -L 2
+.
+├── README.md
+├── mariodata
+│   ├── feiyan1
+│   ├── feiyan10
+│   ├── feiyan11
+│   ├── feiyan12
+│   ├── feiyan13
+│   ├── feiyan14
+│   ├── feiyan15
+│   ├── feiyan16
+│   ├── feiyan17
+│   ├── feiyan18
+│   ├── feiyan19
+│   ├── feiyan2
+│   ├── feiyan20
+│   ├── feiyan21
+│   ├── feiyan22
+│   ├── feiyan23
+│   ├── feiyan24
+│   ├── feiyan25
+│   ├── feiyan26
+│   ├── feiyan27
+│   ├── feiyan28
+│   ├── feiyan29
+│   ├── feiyan3
+│   ├── feiyan30
+│   ├── feiyan31
+│   ├── feiyan32
+│   ├── feiyan33
+│   ├── feiyan34
+│   ├── feiyan35
+│   ├── feiyan36
+│   ├── feiyan37
+│   ├── feiyan38
+│   ├── feiyan39
+│   ├── feiyan4
+│   ├── feiyan40
+│   ├── feiyan41
+│   ├── feiyan42
+│   ├── feiyan43
+│   ├── feiyan44
+│   ├── feiyan45
+│   ├── feiyan46
+│   ├── feiyan47
+│   ├── feiyan48
+│   ├── feiyan49
+│   ├── feiyan5
+│   ├── feiyan50
+│   ├── feiyan51
+│   ├── feiyan52
+│   ├── feiyan53
+│   ├── feiyan54
+│   ├── feiyan55
+│   ├── feiyan56
+│   ├── feiyan57
+│   ├── feiyan58
+│   ├── feiyan59
+│   ├── feiyan6
+│   ├── feiyan60
+│   ├── feiyan61
+│   ├── feiyan62
+│   ├── feiyan63
+│   ├── feiyan64
+│   ├── feiyan65
+│   ├── feiyan66
+│   ├── feiyan67
+│   ├── feiyan68
+│   ├── feiyan69
+│   ├── feiyan7
+│   ├── feiyan70
+│   ├── feiyan8
+│   ├── feiyan9
+│   ├── qingzheng1
+│   ├── qingzheng10
+│   ├── qingzheng11
+│   ├── qingzheng12
+│   ├── qingzheng13
+│   ├── qingzheng14
+│   ├── qingzheng15
+│   ├── qingzheng16
+│   ├── qingzheng17
+│   ├── qingzheng18
+│   ├── qingzheng19
+│   ├── qingzheng2
+│   ├── qingzheng20
+│   ├── qingzheng21
+│   ├── qingzheng22
+│   ├── qingzheng23
+│   ├── qingzheng24
+│   ├── qingzheng25
+│   ├── qingzheng26
+│   ├── qingzheng27
+│   ├── qingzheng28
+│   ├── qingzheng29
+│   ├── qingzheng3
+│   ├── qingzheng30
+│   ├── qingzheng31
+│   ├── qingzheng32
+│   ├── qingzheng33
+│   ├── qingzheng34
+│   ├── qingzheng35
+│   ├── qingzheng36
+│   ├── qingzheng37
+│   ├── qingzheng38
+│   ├── qingzheng39
+│   ├── qingzheng4
+│   ├── qingzheng40
+│   ├── qingzheng5
+│   ├── qingzheng6
+│   ├── qingzheng7
+│   ├── qingzheng8
+│   ├── qingzheng9
+│   ├── zhaoyang1
+│   ├── zhaoyang10
+│   ├── zhaoyang11
+│   ├── zhaoyang12
+│   ├── zhaoyang13
+│   ├── zhaoyang14
+│   ├── zhaoyang15
+│   ├── zhaoyang16
+│   ├── zhaoyang17
+│   ├── zhaoyang18
+│   ├── zhaoyang19
+│   ├── zhaoyang2
+│   ├── zhaoyang20
+│   ├── zhaoyang3
+│   ├── zhaoyang4
+│   ├── zhaoyang5
+│   ├── zhaoyang6
+│   ├── zhaoyang7
+│   ├── zhaoyang8
+│   └── zhaoyang9
+└── mariodata.tar.gz
+
+132 directories, 2 files
+
+
+
+
+
+
+
+
+
+#!/usr/bin/env python3
+"""Convert the Mario Gameplay Dataset (PNG per frame) to a LeWM-compatible HDF5 file.
+
+Each subdirectory under the data root is treated as one trajectory (episode).
+Filenames follow: {user}_f{frame_id}_a{action_code}_nt{death_status}.png
+
+Output HDF5 layout (stable_worldmodel.data.HDF5Dataset compatible):
+    pixels:      [total_frames, 224, 224, 3] uint8
+    action:      [total_frames, 31]           float32  (one-hot, codes 0-30)
+    episode_idx: [total_frames]               int32
+    step_idx:    [total_frames]               int32
+    ep_len:      [num_episodes]               int32
+    ep_offset:   [num_episodes]               int32
+    alive:       [total_frames]               int32    (1=alive, 0=dead)
+
+Also generates mario_data.md with full dataset documentation and statistics.
+"""
+
+import argparse
+import os
+import re
+import sys
+import time
+from collections import Counter, defaultdict
+from pathlib import Path
+
+import h5py
+import numpy as np
+from PIL import Image
+
+# ---------------------------------------------------------------------------
+# Filename parsing
+# ---------------------------------------------------------------------------
+
+FRAME_RE = re.compile(
+    r"^(?P<user>[a-zA-Z]+)_f(?P<fid>\d+)_a(?P<action>\d+)_nt(?P<alive>[01])\.png$"
+)
+
+IMG_SIZE = 224
+NUM_ACTIONS = 31  # action codes 0-30
+
+
+def parse_filename(fname: str):
+    """Return (user, frame_id, action_code, alive) or None if not matching."""
+    m = FRAME_RE.match(fname)
+    if m is None:
+        return None
+    return (
+        m.group("user"),
+        int(m.group("fid")),
+        int(m.group("action")),
+        int(m.group("alive")),
+    )
+
+
+# ---------------------------------------------------------------------------
+# Trajectory discovery
+# ---------------------------------------------------------------------------
+
+
+def discover_trajectories(data_dir: str):
+    """Walk subdirectories and return a sorted list of trajectory dicts.
+
+    Each dict: {
+        "name": str,          # subdirectory name
+        "frames": [(path, frame_id, action_code, alive), ...],  # sorted by frame_id
+    }
+    """
+    data_path = Path(data_dir)
+    trajectories = []
+
+    for subdir in sorted(data_path.iterdir()):
+        if not subdir.is_dir():
+            continue
+        frames = []
+        for f in subdir.iterdir():
+            if not f.suffix.lower() == ".png":
+                continue
+            parsed = parse_filename(f.name)
+            if parsed is None:
+                continue
+            _user, fid, action, alive = parsed
+            frames.append((str(f), fid, action, alive))
+        if not frames:
+            continue
+        # Sort by frame_id
+        frames.sort(key=lambda x: x[1])
+        trajectories.append({"name": subdir.name, "frames": frames})
+
+    return trajectories
+
+
+# ---------------------------------------------------------------------------
+# HDF5 writing
+# ---------------------------------------------------------------------------
+
+
+def write_hdf5(trajectories, output_path: str):
+    """Write all trajectories to HDF5."""
+
+    total_frames = sum(len(t["frames"]) for t in trajectories)
+    num_episodes = len(trajectories)
+
+    print(f"Writing HDF5: {num_episodes} episodes, {total_frames} total frames")
+    print(f"Output: {output_path}")
+
+    ep_lengths = np.array([len(t["frames"]) for t in trajectories], dtype=np.int32)
+    ep_offsets = np.concatenate(([0], np.cumsum(ep_lengths[:-1]))).astype(np.int32)
+
+    os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
+
+    with h5py.File(output_path, "w") as hf:
+        px = hf.create_dataset(
+            "pixels", shape=(total_frames, IMG_SIZE, IMG_SIZE, 3), dtype=np.uint8
+        )
+        act = hf.create_dataset(
+            "action", shape=(total_frames, NUM_ACTIONS), dtype=np.float32
+        )
+        ep_idx = hf.create_dataset("episode_idx", shape=(total_frames,), dtype=np.int32)
+        st_idx = hf.create_dataset("step_idx", shape=(total_frames,), dtype=np.int32)
+        alive_ds = hf.create_dataset("alive", shape=(total_frames,), dtype=np.int32)
+        hf.create_dataset("ep_len", data=ep_lengths, dtype=np.int32)
+        hf.create_dataset("ep_offset", data=ep_offsets, dtype=np.int32)
+
+        offset = 0
+        t0 = time.time()
+        for ep_i, traj in enumerate(trajectories):
+            n = len(traj["frames"])
+            for j, (img_path, _fid, action_code, alive_flag) in enumerate(
+                traj["frames"]
+            ):
+                idx = offset + j
+
+                # Load and resize image
+                img = Image.open(img_path).convert("RGB")
+                img = img.resize((IMG_SIZE, IMG_SIZE), Image.LANCZOS)
+                px[idx] = np.array(img, dtype=np.uint8)
+
+                # One-hot action
+                one_hot = np.zeros(NUM_ACTIONS, dtype=np.float32)
+                if 0 <= action_code < NUM_ACTIONS:
+                    one_hot[action_code] = 1.0
+                act[idx] = one_hot
+
+                ep_idx[idx] = ep_i
+                st_idx[idx] = j
+                alive_ds[idx] = alive_flag
+
+            offset += n
+
+            if (ep_i + 1) % 10 == 0 or ep_i == num_episodes - 1:
+                elapsed = time.time() - t0
+                print(
+                    f"  [{ep_i + 1}/{num_episodes}] "
+                    f"{offset}/{total_frames} frames  ({elapsed:.1f}s)"
+                )
+
+    size_mb = os.path.getsize(output_path) / 1e6
+    print(f"Done. HDF5 file: {size_mb:.1f} MB")
+
+
+# ---------------------------------------------------------------------------
+# Statistics & markdown report
+# ---------------------------------------------------------------------------
+
+README_CONTENT = r"""---
+license: mit
+task_categories:
+- image-to-video
+- image-to-image
+tags:
+- GameGen
+- Diffusion
+- dataset
+- video
+- GamePlay
+- Generative-modeling
+- supermario
+---
+
+# Mario Gameplay Dataset (522k Frames)
+
+This dataset contains **522,000 gameplay frames** from **Super Mario Bros Level 1-1**, designed specifically for **generative modeling, diffusion models, and action-conditioned video generation**.
+
+The dataset provides **raw frames**, **per-frame action labels**, and **alive/death markers**, enabling both **vision-only** and **action-conditioned** modeling.
+
+- **Project code:** https://github.com/zhoufeiyn/ltpclean
+- **Game environment:** https://github.com/zhoufeiyn/super-mario1_1env
+
+---
+
+## Dataset Overview
+
+| Property | Value |
+|---------|-------|
+| Total frames | **522,000** |
+| Resolution | 800x600 px |
+| FPS | 30 |
+| Game | Super Mario Bros 1-1 |
+| Data source | Human + RL agent trajectories |
+| Split | `train` (522k rows) |
+| Format | PNG + key string metadata |
+
+This dataset is suitable for game world modeling, controllable generation, and long-horizon sequence modeling.
+
+---
+
+## Naming Convention
+
+Each image is named using the following pattern:
+
+```text
+{user}/zf_f{frame_id}_a{action_code}_nt{death_status}.png
+```
+
+### Field Description
+
+| Field | Meaning |
+|-------|---------|
+| `{user}` | Player ID (e.g., `zf`) |
+| `f{frame_id}` | Frame index (e.g., `f340`, no zero padding) |
+| `a{action_code}` | Mario action code (0-30) |
+| `nt{death_status}` | `nt1` = alive, `nt0` = dead |
+
+## Action Code Table (0-30)
+
+| Code | Action Combo | Description |
+|------|--------------|-------------|
+| 0 | -- | Idle |
+| 1 | LEFT | Move left |
+| 2 | RIGHT | Move right |
+| 4 | A | Jump |
+| 5 | LEFT + A | Jump left |
+| 6 | RIGHT + A | Jump right |
+| 8 | S | Action / run / fire |
+| 9 | LEFT + S | Run left |
+| 10 | RIGHT + S | Run right |
+| 12 | A + S | Jump + action |
+| 13 | LEFT + A + S | Jump left + run |
+| 14 | RIGHT + A + S | Jump right + run |
+| 16 | DOWN | Crouch |
+| 17 | LEFT + DOWN | Crouch left |
+| 18 | RIGHT + DOWN | Crouch right |
+| 20 | A + DOWN | Crouch jump |
+| 21 | LEFT + A + DOWN | Crouch jump left |
+| 22 | RIGHT + A + DOWN | Crouch jump right |
+| 24 | S + DOWN | Crouch + action |
+| 25 | LEFT + S + DOWN | Crouch left + action |
+| 26 | RIGHT + S + DOWN | Crouch right + action |
+| 28 | JUMP + S + DOWN | Crouch jump + action |
+| 29 | LEFT + A + S + DOWN | Left crouch run jump |
+| 30 | RIGHT + A + S + DOWN | Right crouch run jump |
+
+---
+
+## Citation
+
+If you use this dataset in your work, please cite:
+
+```bibtex
+@dataset{zhou2025mario,
+  title   = {Mario Gameplay Dataset (Level 1-1, 522k Frames)},
+  author  = {Feiyan Zhou, Zhaoyang Lu, Qingzheng Gao},
+  year    = {2025},
+  note    = {https://huggingface.co/datasets/FeiyanZhou/mario_data}
+}
+```
+"""
+
+ACTION_NAMES = {
+    0: "Idle",
+    1: "LEFT",
+    2: "RIGHT",
+    4: "A (Jump)",
+    5: "LEFT + A",
+    6: "RIGHT + A",
+    8: "S (Run/Fire)",
+    9: "LEFT + S",
+    10: "RIGHT + S",
+    12: "A + S",
+    13: "LEFT + A + S",
+    14: "RIGHT + A + S",
+    16: "DOWN",
+    17: "LEFT + DOWN",
+    18: "RIGHT + DOWN",
+    20: "A + DOWN",
+    21: "LEFT + A + DOWN",
+    22: "RIGHT + A + DOWN",
+    24: "S + DOWN",
+    25: "LEFT + S + DOWN",
+    26: "RIGHT + S + DOWN",
+    28: "JUMP + S + DOWN",
+    29: "LEFT + A + S + DOWN",
+    30: "RIGHT + A + S + DOWN",
+}
+
+
+def compute_stats(trajectories):
+    """Compute dataset statistics from discovered trajectories."""
+    num_episodes = len(trajectories)
+    lengths = [len(t["frames"]) for t in trajectories]
+    total_frames = sum(lengths)
+    lengths_arr = np.array(lengths)
+
+    # Action distribution (across all frames)
+    action_counter = Counter()
+    for t in trajectories:
+        for _, _, action_code, _ in t["frames"]:
+            action_counter[action_code] += 1
+
+    # Last-frame alive/dead per trajectory
+    alive_count = 0
+    dead_count = 0
+    for t in trajectories:
+        last_alive = t["frames"][-1][3]  # alive flag of last frame
+        if last_alive == 1:
+            alive_count += 1
+        else:
+            dead_count += 1
+
+    # Per-player counts
+    player_counter = defaultdict(int)
+    for t in trajectories:
+        # Extract player prefix from directory name (e.g., "feiyan" from "feiyan23")
+        name = t["name"]
+        player = re.sub(r"\d+$", "", name)
+        player_counter[player] += 1
+
+    stats = {
+        "num_episodes": num_episodes,
+        "total_frames": total_frames,
+        "len_min": int(lengths_arr.min()),
+        "len_max": int(lengths_arr.max()),
+        "len_mean": float(lengths_arr.mean()),
+        "len_median": float(np.median(lengths_arr)),
+        "len_std": float(lengths_arr.std()),
+        "action_counter": dict(action_counter),
+        "alive_at_end": alive_count,
+        "dead_at_end": dead_count,
+        "player_counter": dict(player_counter),
+    }
+    return stats
+
+
+def generate_mario_data_md(stats, output_path: str):
+    """Write mario_data.md with original README info + computed statistics."""
+    lines = []
+
+    # Reproduce original README content
+    lines.append(README_CONTENT.strip())
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+
+    # Dataset statistics section
+    lines.append("# Computed Dataset Statistics")
+    lines.append("")
+    lines.append("The statistics below were computed by `convert_mario_to_hdf5.py` ")
+    lines.append("during the conversion to HDF5 format.")
+    lines.append("")
+
+    # Summary table
+    lines.append("## Summary")
+    lines.append("")
+    lines.append("| Metric | Value |")
+    lines.append("|--------|-------|")
+    lines.append(f"| Trajectories (episodes) | **{stats['num_episodes']}** |")
+    lines.append(f"| Total frames | **{stats['total_frames']:,}** |")
+    lines.append(f"| Stored image size | 224 x 224 x 3 (resized from 800x600) |")
+    lines.append(f"| Action encoding | One-hot (dim=31, codes 0-30) |")
+    lines.append("")
+
+    # Trajectory length distribution
+    lines.append("## Trajectory Length Distribution")
+    lines.append("")
+    lines.append("| Statistic | Value |")
+    lines.append("|-----------|-------|")
+    lines.append(f"| Min | {stats['len_min']} |")
+    lines.append(f"| Max | {stats['len_max']} |")
+    lines.append(f"| Mean | {stats['len_mean']:.1f} |")
+    lines.append(f"| Median | {stats['len_median']:.1f} |")
+    lines.append(f"| Std | {stats['len_std']:.1f} |")
+    lines.append("")
+
+    # Alive / Dead at end of trajectory
+    lines.append("## Trajectory Outcome (Last Frame)")
+    lines.append("")
+    lines.append("| Status | Count | Percentage |")
+    lines.append("|--------|-------|------------|")
+    total_ep = stats["num_episodes"]
+    alive_pct = 100.0 * stats["alive_at_end"] / total_ep if total_ep else 0
+    dead_pct = 100.0 * stats["dead_at_end"] / total_ep if total_ep else 0
+    lines.append(
+        f"| Alive (nt1) | {stats['alive_at_end']} | {alive_pct:.1f}% |"
+    )
+    lines.append(
+        f"| Dead (nt0) | {stats['dead_at_end']} | {dead_pct:.1f}% |"
+    )
+    lines.append("")
+
+    # Action distribution
+    lines.append("## Action Distribution")
+    lines.append("")
+    lines.append("| Code | Action | Count | Percentage |")
+    lines.append("|------|--------|-------|------------|")
+    total_act = stats["total_frames"]
+    for code in sorted(stats["action_counter"].keys()):
+        count = stats["action_counter"][code]
+        pct = 100.0 * count / total_act if total_act else 0
+        name = ACTION_NAMES.get(code, f"Unknown({code})")
+        lines.append(f"| {code} | {name} | {count:,} | {pct:.2f}% |")
+    lines.append("")
+
+    # Per-player trajectory counts
+    lines.append("## Trajectories per Player")
+    lines.append("")
+    lines.append("| Player | Trajectories |")
+    lines.append("|--------|--------------|")
+    for player in sorted(stats["player_counter"].keys()):
+        lines.append(f"| {player} | {stats['player_counter'][player]} |")
+    lines.append("")
+
+    # HDF5 schema documentation
+    lines.append("---")
+    lines.append("")
+    lines.append("# HDF5 Output Schema")
+    lines.append("")
+    lines.append(
+        "The `.h5` file is compatible with `stable_worldmodel.data.HDF5Dataset` "
+        "(used by LeWM `train.py`)."
+    )
+    lines.append("")
+    lines.append("| Dataset | Shape | Dtype | Description |")
+    lines.append("|---------|-------|-------|-------------|")
+    lines.append(
+        f"| `pixels` | [{stats['total_frames']}, 224, 224, 3] | uint8 | "
+        "RGB frames resized from 800x600 via Lanczos |"
+    )
+    lines.append(
+        f"| `action` | [{stats['total_frames']}, 31] | float32 | "
+        "One-hot encoded action (codes 0-30) |"
+    )
+    lines.append(
+        f"| `episode_idx` | [{stats['total_frames']}] | int32 | "
+        "Which episode each frame belongs to |"
+    )
+    lines.append(
+        f"| `step_idx` | [{stats['total_frames']}] | int32 | "
+        "Timestep within the episode |"
+    )
+    lines.append(
+        f"| `alive` | [{stats['total_frames']}] | int32 | "
+        "1 = Mario alive, 0 = Mario dead |"
+    )
+    lines.append(
+        f"| `ep_len` | [{stats['num_episodes']}] | int32 | "
+        "Length of each episode |"
+    )
+    lines.append(
+        f"| `ep_offset` | [{stats['num_episodes']}] | int32 | "
+        "Start index of each episode in the flat arrays |"
+    )
+    lines.append("")
+
+    lines.append("## Notes")
+    lines.append("")
+    lines.append(
+        "- Images are resized from the original 800x600 to 224x224 using "
+        "Lanczos resampling to match LeWM's expected input resolution."
+    )
+    lines.append(
+        "- Actions are one-hot encoded into a 31-dimensional vector (indices 0-30). "
+        "Not all codes are used by the game; unused indices will be all-zeros."
+    )
+    lines.append(
+        "- The `alive` column is **not** consumed by LeWM training but is preserved "
+        "as metadata. The last frame of each trajectory indicates whether Mario "
+        "survived (`nt1`) or died (`nt0`)."
+    )
+    lines.append("")
+
+    md_text = "\n".join(lines)
+
+    with open(output_path, "w") as f:
+        f.write(md_text)
+
+    print(f"Wrote documentation to {output_path}")
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Convert Mario PNG dataset to LeWM-compatible HDF5"
+    )
+    parser.add_argument(
+        "--data-dir",
+        default=os.path.join(os.path.dirname(__file__), "mariodata"),
+        help="Root directory containing per-trajectory subdirectories of PNGs",
+    )
+    parser.add_argument(
+        "--output",
+        default=None,
+        help="Output HDF5 file path (default: <data-dir>/../mario.h5)",
+    )
+    parser.add_argument(
+        "--md-output",
+        default=None,
+        help="Output markdown file path (default: <data-dir>/../mario_data.md)",
+    )
+    parser.add_argument(
+        "--stats-only",
+        action="store_true",
+        help="Only compute and print stats, do not write HDF5",
+    )
+    args = parser.parse_args()
+
+    data_dir = args.data_dir
+    if args.output is None:
+        args.output = os.path.join(os.path.dirname(data_dir), "mario.h5")
+    if args.md_output is None:
+        args.md_output = os.path.join(os.path.dirname(data_dir), "mario_data.md")
+
+    print(f"Scanning trajectories in {data_dir} ...")
+    trajectories = discover_trajectories(data_dir)
+
+    if not trajectories:
+        print("ERROR: No trajectories found. Check --data-dir path.", file=sys.stderr)
+        sys.exit(1)
+
+    print(f"Found {len(trajectories)} trajectories")
+
+    # Compute statistics
+    stats = compute_stats(trajectories)
+
+    # Print summary to console
+    print(f"\n{'='*50}")
+    print(f"  Trajectories:  {stats['num_episodes']}")
+    print(f"  Total frames:  {stats['total_frames']:,}")
+    print(f"  Length range:  {stats['len_min']} – {stats['len_max']}")
+    print(f"  Length mean:   {stats['len_mean']:.1f} (std {stats['len_std']:.1f})")
+    print(f"  Alive at end:  {stats['alive_at_end']}")
+    print(f"  Dead at end:   {stats['dead_at_end']}")
+    print(f"{'='*50}\n")
+
+    # Generate markdown report
+    generate_mario_data_md(stats, args.md_output)
+
+    if args.stats_only:
+        print("Stats-only mode: skipping HDF5 generation.")
+        return
+
+    # Write HDF5
+    write_hdf5(trajectories, args.output)
+
+    print("\nAll done!")
+    print(f"  HDF5:     {args.output}")
+    print(f"  Markdown: {args.md_output}")
+
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
 
 
