@@ -1,5 +1,19 @@
-https://www.dropbox.com/scl/fi/b3zd8fxae10tgkn2lwysm/epoch_losses.csv?rlkey=qqguisrw6i91ey6t49vpn52jj&st=0y9p7ofg&dl=0
+/Users/arya/Desktop/CS231n_final_project/LeWM/le-wm/rollout_video.py
 
-https://www.dropbox.com/scl/fi/a2ow11oibcs1opx6ltqgc/LeWM.zip?rlkey=vq2a5q2uq3x6ya859m0ch4xc2&st=o1mkuv7j&dl=0
+!python rollout_video.py \
+    --checkpoint ../runs/mario_data/Game-mario_data_H5File-mario_75ep_run_20260511-053636/lewm_weights.ckpt \
+    --dataset mario_data/mario_75ep \
+    --num-steps 30 \
+    --episode 5 \
+    --fps 5
 
-https://www.dropbox.com/scl/fi/71kbcw6lzxn679z3upp11/training_summary.zip?rlkey=bnlmd9xcvbg6mutzwivkg37pr&st=t38xvwsj&dl=0
+Loading episode 5 from /content/drive/MyDrive/LeWM_project/stablewm_home/mario_data/mario_75ep.h5 ...
+ Context: 3 frames, Rollout: 30 steps
+Loading model from ../runs/mario_data/Game-mario_data_H5File-mario_75ep_run_20260511-053636/lewm_weights.ckpt ...
+Traceback (most recent call last):
+  File "/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm/rollout_video.py", line 423, in <module>
+    main()
+  File "/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm/rollout_video.py", line 322, in main
+    model = model.to(device)
+            ^^^^^^^^
+AttributeError: 'dict' object has no attribute 'to'
