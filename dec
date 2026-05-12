@@ -1,19 +1,31 @@
-/Users/arya/Desktop/CS231n_final_project/LeWM/le-wm/rollout_video.py
 
 !python rollout_video.py \
-    --checkpoint ../runs/mario_data/Game-mario_data_H5File-mario_75ep_run_20260511-053636/lewm_weights.ckpt \
+    --checkpoint ../runs/mario_data/Game-mario_data_H5File-mario_75ep_run_20260511-053636/lewm_epoch_50_object.ckpt \
     --dataset mario_data/mario_75ep \
-    --num-steps 30 \
-    --episode 5 \
-    --fps 5
+    --num-steps 10 \
+    --episode 1 \
+    --fps 30
 
-Loading episode 5 from /content/drive/MyDrive/LeWM_project/stablewm_home/mario_data/mario_75ep.h5 ...
- Context: 3 frames, Rollout: 30 steps
-Loading model from ../runs/mario_data/Game-mario_data_H5File-mario_75ep_run_20260511-053636/lewm_weights.ckpt ...
-Traceback (most recent call last):
-  File "/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm/rollout_video.py", line 423, in <module>
-    main()
-  File "/content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/le-wm/rollout_video.py", line 322, in main
-    model = model.to(device)
-            ^^^^^^^^
-AttributeError: 'dict' object has no attribute 'to'
+Loading episode 1 from /content/drive/MyDrive/LeWM_project/stablewm_home/mario_data/mario_75ep.h5 ...
+ Context: 3 frames, Rollout: 10 steps
+ Warning: 234 NaN/inf values in normalized actions (will be replaced with 0)
+Loading model from ../runs/mario_data/Game-mario_data_H5File-mario_75ep_run_20260511-053636/lewm_epoch_50_object.ckpt ...
+Running 10-step rollout ...
+
+ Embedding diagnostics (L2 norm:)
+ Context:  ['11.12', '12.33', '12.33']
+ Predicted: ['12.26', '12.15', '12.06', '11.96', '11.87', '11.78', '11.70', '11.63', '11.56', '11.49']
+ Pred/Ctx ratio (step 0): 0.994
+ Decoded pixel range (raw): [-2.581, 3.329]
+Saving outputs to /content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/runs/mario_data/Game-mario_data_H5File-mario_75ep_run_20260511-053636/rollout_generation/ep1_s0_n10 ...
+
+Done. All outputs saved to /content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/runs/mario_data/Game-mario_data_H5File-mario_75ep_run_20260511-053636/rollout_generation/ep1_s0_n10/
+ ground_truth.mp4   - GT frames only
+ rollout.mp4        - model predictions only
+ comparison.mp4     - GT (top) vs rollout (bottom)
+ actions.json       - raw & normalized actions with frame labels
+ frames/            - individual PNGs (gt_XXXXX.png, rollout_XXXXX.png)
+ grids/             - per-timestep GT|rollout grids (grid_XXXXX.png)
+
+ Frames 0-2: context (decoded from real embeddings)
+ Frames 3-12: autoregressive predictions
