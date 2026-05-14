@@ -1,109 +1,13 @@
-============================================================
- LeWM Training Summary
+You are an expert computer vision scientist helping a scholar on a project. Review the entire repository at `/Users/arya/Desktop/CS231n_final_project/LeWM` as a senior computer vision and machine learning researcher conducting a pre-submission technical audit for a research project.
 
- Game: mario_data/mario_25ep
- Completed in: 7h 1m 31.0s
- Checkpoints: /content/drive/MyDrive/LeWM_project/runs/mario_data/Game-mario_data_H5File-mario_75ep_run_20260511-053636/
-============================================================
+Your task is to perform a comprehensive codebase review across all files, directories, scripts, configs, notebooks, and documentation.
 
-LeWM Training Config:
- trainer.max_epochs        50
- loader.batch_size         16
- encoder_type              vit_tiny
- encoder_scale             tiny
- img_size                  224
- wm.history_size           3
- wm.num_preds              1
- wm.embed_dim              192
- predictor.depth           6
- predictor.heads           16
- loss.reg_type             sigreg
- loss.reg_weight           0.09
- has_decoder               True
- optimizer.lr              5e-05
+First read /Users/arya/Desktop/CS231n_final_project/LeWM/le-wm/README.md
 
-Checkpoints:
- lewm_epoch_10_object.ckpt                102.6 MB
- lewm_epoch_11_object.ckpt                102.6 MB
- lewm_epoch_12_object.ckpt                102.6 MB
- lewm_epoch_13_object.ckpt                102.6 MB
- lewm_epoch_14_object.ckpt                102.6 MB
- lewm_epoch_15_object.ckpt                102.6 MB
- lewm_epoch_16_object.ckpt                102.6 MB
- lewm_epoch_17_object.ckpt                102.6 MB
- lewm_epoch_18_object.ckpt                102.6 MB
- lewm_epoch_19_object.ckpt                102.6 MB
- lewm_epoch_1_object.ckpt                 102.6 MB
- lewm_epoch_20_object.ckpt                102.6 MB
- lewm_epoch_21_object.ckpt                102.6 MB
- lewm_epoch_22_object.ckpt                102.6 MB
- lewm_epoch_23_object.ckpt                102.6 MB
- lewm_epoch_24_object.ckpt                102.6 MB
- lewm_epoch_25_object.ckpt                102.6 MB
- lewm_epoch_26_object.ckpt                102.6 MB
- lewm_epoch_27_object.ckpt                102.6 MB
- lewm_epoch_28_object.ckpt                102.6 MB
- lewm_epoch_29_object.ckpt                102.6 MB
- lewm_epoch_2_object.ckpt                 102.6 MB
- lewm_epoch_30_object.ckpt                102.6 MB
- lewm_epoch_31_object.ckpt                102.6 MB
- lewm_epoch_32_object.ckpt                102.6 MB
- lewm_epoch_33_object.ckpt                102.6 MB
- lewm_epoch_34_object.ckpt                102.6 MB
- lewm_epoch_35_object.ckpt                102.6 MB
- lewm_epoch_36_object.ckpt                102.6 MB
- lewm_epoch_37_object.ckpt                102.6 MB
- lewm_epoch_38_object.ckpt                102.6 MB
- lewm_epoch_39_object.ckpt                102.6 MB
- lewm_epoch_3_object.ckpt                 102.6 MB
- lewm_epoch_40_object.ckpt                102.6 MB
- lewm_epoch_41_object.ckpt                102.6 MB
- lewm_epoch_42_object.ckpt                102.6 MB
- lewm_epoch_43_object.ckpt                102.6 MB
- lewm_epoch_44_object.ckpt                102.6 MB
- lewm_epoch_45_object.ckpt                102.6 MB
- lewm_epoch_46_object.ckpt                102.6 MB
- lewm_epoch_47_object.ckpt                102.6 MB
- lewm_epoch_48_object.ckpt                102.6 MB
- lewm_epoch_49_object.ckpt                102.6 MB
- lewm_epoch_4_object.ckpt                 102.6 MB
- lewm_epoch_50_object.ckpt                102.6 MB
- lewm_epoch_5_object.ckpt                 102.6 MB
- lewm_epoch_6_object.ckpt                 102.6 MB
- lewm_epoch_7_object.ckpt                 102.6 MB
- lewm_epoch_8_object.ckpt                 102.6 MB
- lewm_epoch_9_object.ckpt                 102.6 MB
+Then Read /Users/arya/Desktop/CS231n_final_project/LeWM/project_proposal.md
 
-Final values:
- train/decoder_loss_pred: 0.107032
- train/decoder_loss_recon: 0.104651
- train/loss: 0.165336
- train/pred_loss: 0.001886
- train/reg_loss: 0.653318
- val/decoder_loss_pred: 0.091849
- val/decoder_loss_recon: 0.090197
- val/emb_effective_rank: 38.739902
- val/emb_mean_cosine_sim: 0.003429
- val/emb_mean_of_means: 0.005195
- val/emb_mean_of_stds: 1.074843
- val/emb_min_singular_value: 0.200110
- val/emb_min_std: 0.756385
- val/emb_std_of_stds: 0.103580
- val/loss: 0.215337
- val/lpips_pred: 0.181288
- val/lpips_recon: 0.181173
- val/pred_loss: 0.001545
- val/psnr_pred: 23.301111
- val/psnr_recon: 23.380390
- val/reg_loss: 1.373367
- val/rollout_lpips_final: 0.181147
- val/rollout_lpips_mean: 0.181147
- val/rollout_lpips_step_0: 0.181147
- val/rollout_psnr_final: 23.340149
- val/rollout_psnr_mean: 23.340149
- val/rollout_psnr_step_0: 23.340149
- val/rollout_ssim_final: 0.902172
- val/rollout_ssim_mean: 0.902172
- val/rollout_ssim_step_0: 0.902172
- val/ssim_pred: 0.901717
- val/ssim_recon: 0.902582
+Then read throough every single file in the /Users/arya/Desktop/CS231n_final_project/LeWM, espcially the .yaml and .py scripts 
+
+Right now for the video gamedata set config files (e.g. /Users/arya/Desktop/CS231n_final_project/LeWM/le-wm/config/train/data/mario_data.yaml) we have frameskip: 1
+
+Determine if we change frameskip: 1 to frameskip: 5 (value greater than 1) and when we run /Users/arya/Desktop/CS231n_final_project/LeWM/le-wm/train.py that the code base supports this and no error occurs. Check the summary, graphs, and output files. Determine if we can still generate valid rollout videos. Look at /Users/arya/Desktop/CS231n_final_project/LeWM/le-wm/generate_rollout.py and /Users/arya/Desktop/CS231n_final_project/LeWM/le-wm/make_video.py and provided details if everything is ok when we increase the value of frameskip and what are implications of the results we get
