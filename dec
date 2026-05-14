@@ -1,13 +1,1 @@
-You are an expert computer vision scientist helping a scholar on a project. Review the entire repository at `/Users/arya/Desktop/CS231n_final_project/LeWM` as a senior computer vision and machine learning researcher conducting a pre-submission technical audit for a research project.
-
-Your task is to perform a comprehensive codebase review across all files, directories, scripts, configs, notebooks, and documentation.
-
-First read /Users/arya/Desktop/CS231n_final_project/LeWM/le-wm/README.md
-
-Then Read /Users/arya/Desktop/CS231n_final_project/LeWM/project_proposal.md
-
-Then read throough every single file in the /Users/arya/Desktop/CS231n_final_project/LeWM, espcially the .yaml and .py scripts 
-
-Right now for the video gamedata set config files (e.g. /Users/arya/Desktop/CS231n_final_project/LeWM/le-wm/config/train/data/mario_data.yaml) we have frameskip: 1
-
-Determine if we change frameskip: 1 to frameskip: 5 (value greater than 1) and when we run /Users/arya/Desktop/CS231n_final_project/LeWM/le-wm/train.py that the code base supports this and no error occurs. Check the summary, graphs, and output files. Determine if we can still generate valid rollout videos. Look at /Users/arya/Desktop/CS231n_final_project/LeWM/le-wm/generate_rollout.py and /Users/arya/Desktop/CS231n_final_project/LeWM/le-wm/make_video.py and provided details if everything is ok when we increase the value of frameskip and what are implications of the results we get
+https://www.dropbox.com/scl/fi/48uwomu90ytvtfyo0mpgk/LeWM.zip?rlkey=68dh1ciyhtihvgwtu7bw5cuud&st=wdb8oyp9&dl=0
