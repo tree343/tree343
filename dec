@@ -1,1 +1,142 @@
 https://www.dropbox.com/scl/fi/ec653h0t9xz9g73qxvwvh/training_summary.zip?rlkey=pz6qbmgtwojrzyvmbwgittrtm&st=aribtob3&dl=0
+
+
+
+Look at all the columns of epoch_losses.csv
+
+For now, lets focus on the loss of the world model (encoder + predictor) and decoder. 
+
+metric_loss
+
+metric_decoder_loss_pred
+metric_decoder_loss_recon
+
+metric_pred_loss
+metric_reg_loss
+
+metric_wm_loss
+
+
+from training_summary.txt
+====================================
+
+HDF5 Dataset:
+  path: /content/drive/MyDrive/LeWM_project/stablewm_home/mkdd/mkdd.h5
+  size: 8907.3 MB
+  action               shape=(59120, 16)  dtype=float32
+  ep_len               shape=(121,)  dtype=int32
+  ep_offset            shape=(121,)  dtype=int32
+  episode_idx          shape=(59120,)  dtype=int32
+  pixels               shape=(59120, 224, 224, 3)  dtype=uint8
+  step_idx             shape=(59120,)  dtype=int32
+  episodes: 121
+  total frames: 59120
+  avg frames/episode: 489
+
+LeWM Training Config:
+ data.dataset.name              /content/drive/MyDrive/LeWM_project/stablewm_home/mkdd/mkdd
+ data.dataset.frameskip         1
+ seed                           3072
+ train_split                    0.9
+ img_size                       224
+ patch_size                     14
+ encoder_type                   vit_tiny
+ encoder_scale                  tiny
+ dinov2_model_path              facebook/dinov2-small
+ trainer.max_epochs             25
+ trainer.precision              bf16
+ trainer.gradient_clip_val      1.0
+ loader.batch_size              32
+ optimizer.type                 AdamW
+ optimizer.lr                   5e-05
+ optimizer.weight_decay         0.001
+ scheduler.type                 LinearWarmupCosineAnnealingLR
+ scheduler.warmup_fraction      0.01
+ wm.history_size                3
+ wm.num_preds                   1
+ wm.embed_dim                   192
+ wm.predictor_hidden_dim        192
+ predictor.depth                6
+ predictor.heads                16
+ predictor.mlp_dim              2048
+ predictor.dim_head             64
+ predictor.dropout              0.1
+ predictor.emb_dropout          0.0
+ loss.reg_type                  sigreg
+ loss.reg_weight                0.09
+ has_decoder                    True
+ decoder_optimizer.lr           5e-05
+ decoder.hidden_dim             384
+ decoder.num_patches            196
+ decoder.patch_size             16
+ decoder.num_layers             4
+ decoder.num_heads              8
+ decoder.use_conv_refine        True
+ compute_image_metrics          True
+ compute_latent_metrics         True
+ compute_rollout_metrics        True
+ live_plot                      True
+ live_plot_interval             5
+
+Checkpoints:
+ lewm_epoch_10_object.ckpt                104.4 MB
+ lewm_epoch_11_object.ckpt                104.4 MB
+ lewm_epoch_12_object.ckpt                104.4 MB
+ lewm_epoch_13_object.ckpt                104.4 MB
+ lewm_epoch_14_object.ckpt                104.4 MB
+ lewm_epoch_15_object.ckpt                104.4 MB
+ lewm_epoch_16_object.ckpt                104.4 MB
+ lewm_epoch_17_object.ckpt                104.4 MB
+ lewm_epoch_18_object.ckpt                104.4 MB
+ lewm_epoch_19_object.ckpt                104.4 MB
+ lewm_epoch_1_object.ckpt                 104.4 MB
+ lewm_epoch_20_object.ckpt                104.4 MB
+ lewm_epoch_21_object.ckpt                104.4 MB
+ lewm_epoch_22_object.ckpt                104.4 MB
+ lewm_epoch_23_object.ckpt                104.4 MB
+ lewm_epoch_24_object.ckpt                104.4 MB
+ lewm_epoch_25_object.ckpt                104.4 MB
+ lewm_epoch_2_object.ckpt                 104.4 MB
+ lewm_epoch_3_object.ckpt                 104.4 MB
+ lewm_epoch_4_object.ckpt                 104.4 MB
+ lewm_epoch_5_object.ckpt                 104.4 MB
+ lewm_epoch_6_object.ckpt                 104.4 MB
+ lewm_epoch_7_object.ckpt                 104.4 MB
+ lewm_epoch_8_object.ckpt                 104.4 MB
+ lewm_epoch_9_object.ckpt                 104.4 MB
+
+Final values:
+ train/decoder_loss_pred: 0.244056
+ train/decoder_loss_recon: 0.241280
+ train/loss: 0.315622
+ train/pred_loss: 0.003470
+ train/reg_loss: 0.787474
+ train/wm_loss: 0.074343
+ val/decoder_loss_pred: 0.232065
+ val/decoder_loss_recon: 0.230290
+ val/emb_effective_rank: 47.586292
+ val/emb_mean_cosine_sim: 0.002773
+ val/emb_mean_of_means: 0.000884
+ val/emb_mean_of_stds: 1.010089
+ val/emb_min_singular_value: 0.677537
+ val/emb_min_std: 0.752873
+ val/emb_std_of_stds: 0.106269
+ val/loss: 0.357807
+ val/lpips_pred: 0.437432
+ val/lpips_recon: 0.437133
+ val/pred_loss: 0.002483
+ val/psnr_pred: 19.242495
+ val/psnr_recon: 19.275780
+ val/reg_loss: 1.389054
+ val/rollout_lpips_final: 0.437473
+ val/rollout_lpips_mean: 0.437473
+ val/rollout_lpips_step_0: 0.437473
+ val/rollout_psnr_final: 19.241827
+ val/rollout_psnr_mean: 19.241827
+ val/rollout_psnr_step_0: 19.241827
+ val/rollout_ssim_final: 0.634353
+ val/rollout_ssim_mean: 0.634353
+ val/rollout_ssim_step_0: 0.634353
+ val/ssim_pred: 0.634377
+ val/ssim_recon: 0.634954
+ val/wm_loss: 0.127517
