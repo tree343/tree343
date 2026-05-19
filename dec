@@ -5,3 +5,91 @@ https://www.dropbox.com/scl/fi/ebg2pdvniy3c044xi91kr/execute_plan.py?rlkey=rl48e
 https://www.dropbox.com/scl/fi/mkyzo1mg58ituzkug1ic7/make_action_gameplay_video.py?rlkey=obegoe7x0z8e4xq009wvkoojk&st=w3xkrprn&dl=0
 
 https://www.dropbox.com/scl/fi/3tsg5rnjyy826aps3zixs/write_dtm.py?rlkey=33am8u4vpwhpvwzu50ra3z26i&st=mci4sl63&dl=0
+
+
+
+
+
+
+
+
+RUN_NAME = "Game-mkdd_H5File-mkdd_epl900_14GB_FRAMESKIP-5_ENCODER_TYPE-dinov2_finetune_REG_TYPE-sigreg_REG_LAMBDA-0.09_MAX_EPOCHS-50_BATCH_SIZE-50_WORLD_MODEL_LEARNING_RATE-5e-05_DECODER_LEARNING_RATE-5e-05_run_20260519-074705"
+
+path_to_run = f"../runs//mkdd/{RUN_NAME}"
+
+ADDITIONAL_EPOCHS = 35
+
+cmd = f"""python continue_training.py \
+    --run-dir={path_to_run} \
+    --additional-epochs={ADDITIONAL_EPOCHS} \
+    --mode train
+"""
+!{cmd}
+
+
+
+
+Run directory:   /content/drive/MyDrive/bakhtiar_LeWM_project/runs/mkdd/Game-mkdd_H5File-mkdd_epl900_14GB_FRAMESKIP-5_ENCODER_TYPE-dinov2_finetune_REG_TYPE-sigreg_REG_LAMBDA-0.09_MAX_EPOCHS-50_BATCH_SIZE-50_WORLD_MODEL_LEARNING_RATE-5e-05_DECODER_LEARNING_RATE-5e-05_run_20260519-074705
+Last epoch:      15
+Old max_epochs:  50
+New max_epochs:  50
+Additional:      35
+Weights ckpt:    /content/drive/MyDrive/bakhtiar_LeWM_project/runs/mkdd/Game-mkdd_H5File-mkdd_epl900_14GB_FRAMESKIP-5_ENCODER_TYPE-dinov2_finetune_REG_TYPE-sigreg_REG_LAMBDA-0.09_MAX_EPOCHS-50_BATCH_SIZE-50_WORLD_MODEL_LEARNING_RATE-5e-05_DECODER_LEARNING_RATE-5e-05_run_20260519-074705/ckpts/lewm_weights.ckpt
+  Backed up original config to /content/drive/MyDrive/bakhtiar_LeWM_project/runs/mkdd/Game-mkdd_H5File-mkdd_epl900_14GB_FRAMESKIP-5_ENCODER_TYPE-dinov2_finetune_REG_TYPE-sigreg_REG_LAMBDA-0.09_MAX_EPOCHS-50_BATCH_SIZE-50_WORLD_MODEL_LEARNING_RATE-5e-05_DECODER_LEARNING_RATE-5e-05_run_20260519-074705/config.yaml.bak
+Updated config.yaml: max_epochs=50
+Seed set to 3072
+14:45:21.914 | INFO    (3674, stable_pretraining) | Cached 'action' from '/content/drive/MyDrive/bakhtiar_LeWM_project/stablewm_home/mkdd/mkdd_epl900_14GB.h5'
+14:45:22.114 | INFO    (3674, stable_pretraining) | HTTP Request: HEAD https://huggingface.co/facebook/dinov2-small/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+14:45:22.115 | WARNING (3674, stable_pretraining) | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+14:45:22.126 | INFO    (3674, stable_pretraining) | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/dinov2-small/ed25f3a31f01632728cabb09d1542f84ab7b0056/config.json "HTTP/1.1 200 OK"
+14:45:22.135 | INFO    (3674, stable_pretraining) | HTTP Request: GET https://huggingface.co/api/resolve-cache/models/facebook/dinov2-small/ed25f3a31f01632728cabb09d1542f84ab7b0056/config.json "HTTP/1.1 200 OK"
+config.json: 100% 547/547 [00:00<00:00, 5.12MB/s]
+14:45:22.237 | INFO    (3674, stable_pretraining) | HTTP Request: HEAD https://huggingface.co/facebook/dinov2-small/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+14:45:22.339 | INFO    (3674, stable_pretraining) | HTTP Request: HEAD https://huggingface.co/facebook/dinov2-small/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+14:45:22.348 | INFO    (3674, stable_pretraining) | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/dinov2-small/ed25f3a31f01632728cabb09d1542f84ab7b0056/config.json "HTTP/1.1 200 OK"
+14:45:22.458 | INFO    (3674, stable_pretraining) | HTTP Request: HEAD https://huggingface.co/facebook/dinov2-small/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+14:45:22.598 | INFO    (3674, stable_pretraining) | HTTP Request: GET https://huggingface.co/api/models/facebook/dinov2-small/xet-read-token/ed25f3a31f01632728cabb09d1542f84ab7b0056 "HTTP/1.1 200 OK"
+model.safetensors: 100% 88.2M/88.2M [00:01<00:00, 69.3MB/s]
+Loading weights: 100% 223/223 [00:00<00:00, 1123.74it/s, Materializing param=layernorm.weight]
+14:45:24.160 | INFO    (3674, stable_pretraining.data.module) | Setting up DataModule
+14:45:26.095 | INFO    (3674, stable_pretraining.module) | Initializing Module configuration...
+14:45:26.095 | WARNING (3674, stable_pretraining.module) | No hyperparameters provided - hyperparameter logging is disabled.
+14:45:26.095 | INFO    (3674, stable_pretraining.module) | Setting custom forward method.
+14:45:26.095 | INFO    (3674, stable_pretraining.module) | Setting attribute: self.model = <class 'jepa.JEPA'>
+14:45:26.095 | INFO    (3674, stable_pretraining.module) | Setting attribute: self.regularizer = <class 'module.SIGReg'>
+14:45:26.095 | INFO    (3674, stable_pretraining.module) | Setting attribute: self.optim = <class 'dict'>
+14:45:26.095 | INFO    (3674, stable_pretraining.module) | No metrics configuration provided - automatic metric tracking is disabled.
+Downloading: "https://download.pytorch.org/models/vgg16-397923af.pth" to /root/.cache/torch/hub/checkpoints/vgg16-397923af.pth
+100% 528M/528M [00:01<00:00, 339MB/s]
+  Checkpoint architecture matches — full state restoration (optimizer + LR schedule preserved, last_epoch=15/50)
+/usr/local/lib/python3.12/dist-packages/lightning/fabric/connector.py:571: `precision=bf16` is supported for historical reasons but its usage is discouraged. Please set your precision to bf16-mixed instead!
+Using bfloat16 Automatic Mixed Precision (AMP)
+14:45:40.772 | INFO    (3674, stable_pretraining.callbacks.env_info) | EnvironmentDumpCallback initialized (filename=environment.json, async=True)
+14:45:40.773 | INFO    (3674, stable_pretraining.callbacks.cpu_offload) | ============================================================
+14:45:40.773 | INFO    (3674, stable_pretraining.callbacks.cpu_offload) | Initializing CPUOffloadCallback
+14:45:40.773 | INFO    (3674, stable_pretraining.callbacks.cpu_offload) | Configuration:
+14:45:40.773 | INFO    (3674, stable_pretraining.callbacks.cpu_offload) |   - Offload keys: ['state_dict', 'optimizer_states', 'lr_schedulers']
+14:45:40.773 | INFO    (3674, stable_pretraining.callbacks.cpu_offload) |   - Log all skipped objects: False
+14:45:40.773 | INFO    (3674, stable_pretraining.callbacks.cpu_offload) |   - Will show first/last 10 skipped objects only
+14:45:40.773 | SUCCESS (3674, stable_pretraining.callbacks.cpu_offload) | ✓ CUDA available: 1 GPU(s) detected
+14:45:40.790 | INFO    (3674, stable_pretraining.callbacks.cpu_offload) |   - GPU 0: NVIDIA RTX PRO 6000 Blackwell Server Edition (102.0 GB)
+14:45:40.790 | SUCCESS (3674, stable_pretraining.callbacks.cpu_offload) | CPUOffloadCallback initialized successfully
+14:45:40.790 | INFO    (3674, stable_pretraining.callbacks.cpu_offload) | ============================================================
+Adding 10 callbacks from entry point 'stablepretraining_callbacks': ModuleRegistryCallback, LoggingCallback, EnvironmentDumpCallback, TrainerInfo, SklearnCheckpoint, WandbCheckpoint, ModuleSummary, SLURMInfo, LogUnusedParametersOnce, CPUOffloadCallback
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+14:45:40.791 | ERROR   (3674, richuru) | Exception:
+Traceback (most recent call last):
+
+> File "/content/drive/MyDrive/bakhtiar_LeWM_project/le-wm/continue_training.py", line 660, in <module>
+    main()
+    └ <function main at 0x79b03ae48180>
+
+  File "/content/drive/MyDrive/bakhtiar_LeWM_project/le-wm/continue_training.py", line 625, in main
+    manager = spt.Manager(
+              │   └ <class 'stable_pretraining.manager.Manager'>
+              └ <module 'stable_pretraining' from '/usr/local/lib/python3.12/dist-packages/stable_pretraining/__init__.py'>
+
+TypeError: Manager.__init__() got an unexpected keyword argument 'weights_only'
