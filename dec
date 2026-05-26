@@ -1,10 +1,1 @@
-14:59:02 | INFO  | __init__.py | TensorFlow version 2.20.0 available.
-14:59:02 | INFO  | __init__.py | JAX version 0.7.2 available.
-14:59:04 | INFO  | atomic_chec~| [atomic_save] installed crash-safe checkpoint plugin (write to sibling .tmp + fsync + atomic rename)
-Run directory:   /content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/runs/mkdd/run_11/training_decoder_only_summary/75_ckpt_trained_decoder_only
-Last epoch:      32
-Old max_epochs:  75
-New max_epochs:  75
-Additional:      43
-Error: no lewm_weights.ckpt found in /content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/runs/mkdd/run_11/training_decoder_only_summary/75_ckpt_trained_decoder_only or /content/drive/.shortcut-targets-by-id/1U94S1MSjsQEWf-xQY5MRD-3ApZFMm-0H/LeWM_project/runs/mkdd/run_11/training_decoder_only_summary/75_ckpt_trained_decoder_only/ckpts
-  Also checked source run dir referenced in config.
+https://www.dropbox.com/scl/fi/qi39lq69196paoatqhnqm/Archive.zip?rlkey=m0uoggkhcs4m8jiesgk11xlru&st=i9xuz2nl&dl=0
