@@ -1,1 +1,13 @@
-https://www.dropbox.com/scl/fi/nizsfykb9unmfis8oacgq/Archive.zip?rlkey=0akbb00foel0520sf0j3mq4jq&st=bnjcu695&dl=0
+the local code has weights_saver in the callbacks list. The issue is different:
+
+The weights_saver callback saves lewm_weights.ckpt during training, but spt.Manager redirected its save path:
+
+Redirecting ModelCheckpoint from '.../75_ckpt_trained_decoder_only/ckpts' 
+to '/root/.cache/stable-pretraining/runs/.../checkpoints'
+The Manager moved weights_saver's output directory from your Google Drive to a local cache on the Colab VM (/root/.cache/...). So lewm_weights.ckpt WAS saved every epoch — but to the Colab cache, not to ckpts/ on Drive. When the Colab session ended, that cache was deleted.
+
+That's why continue_training.py can't find a local checkpoint — it looks in ckpts/ on Drive where nothing was saved.
+
+This is a spt.Manager behavior: when it detects cache_dir is set, it redirects ALL ModelCheckpoint callbacks to its own cache directory. There's no argument to prevent this — it's hardcoded in the Manager.
+
+The weights_saver setup is correct. The problem is the Manager hijacking the save path. No code fix on your side can prevent this redirection. The decoder object checkpoints (decoder_epoch_N_object.ckpt) survive because they're saved by DecoderCheckpointCallback using torch.save() directly, not via Lightning's ModelCheckpoint.
