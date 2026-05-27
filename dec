@@ -1,3 +1,8 @@
+https://www.dropbox.com/scl/fi/02zqr9qgzmivlmqourdnt/Archive.zip?rlkey=odttjw43u60pyz3npm29d9pwg&st=dyx2t27s&dl=0
+
+
+
+
 the local code has weights_saver in the callbacks list. The issue is different:
 
 The weights_saver callback saves lewm_weights.ckpt during training, but spt.Manager redirected its save path:
