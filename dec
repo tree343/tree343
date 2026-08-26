@@ -1,1 +1,295 @@
-https://www.dropbox.com/scl/fi/8qhin6snw4uhear0gg91z/export.zip?rlkey=oierwpch86o9ij9dxmunwpyxd&st=gjdbhlgk&dl=0
+Through the first few steps. I remember back then we kind of had to go back and forth. Between the DIPS. Basically... Is there anything that we can do on our end or where we need to have Sandy for? 
+
+
+Oh yeah, there will be like several people that we will have to talk to for the border for DAS. I will have to communicate with Sandy as I'm going through it. Basically on that document, those first few steps up to 2C or 2A can be done without DAS, but it's harder to verify. 
+
+
+Right, so I remember I kind of just went through this very mechanically. I basically have no idea what I'm doing. But yeah, I just have all those goods checked in. 
+
+
+Right, so I'm not sure, but I can actually help you with these steps if you are busy with the future proposal. Or do the proposal depend on anything here? I mean, yeah, I haven't done this before. I can definitely learn and go through it. 
+
+
+- Or if you are too busy, like I can help you because I kind of I did it for CPS before so yeah if we're crunch on time uh because I want to learn how to do it as well yeah of course um but I'll put like a strict timer but to be honest it's very like oh yeah I basically have no idea what I'm doing I kind of just mimic like it's hard to tell Yeah, I'm getting better understanding of their because a lot of the source code here is like to see. So like, you'll notice that you're kind of just like hijacking what used to be an existing service to do something else. Yeah, I'll put a limit for one day if anything I'm stuck anywhere I'll ask because we do need to... 
+
+
+There are things that you actually have to wait. Like for example, like both 1B and 2B. I think they are like you need to wait for your push. So you won't be able to proceed until they land it in production, which is usually like 24 hours after. Yeah. So yeah, so... DSL landed, yeah. Yeah, and then while this is happening out, parallel you could do the DAS reporting as well, so there's that as well. 
+
+
+Oh, so for FFM, right? That's what I'm doing right now as well. 
+
+
+Wait, so they are not doing that? I thought they will have to do it for KD anyway, no? I don't know about KD, like there's some instructions on DAS reporting. Sandeep mentioned that his team is very very stretched, so that's why they had the document I'm planning to go through it and if there's anything then I will reach out to him to ask because the way they're doing it now is different compared to what happened back then. My impression is that for Dash, usually it's the FM team that will do that. 
+
+
+Yes. So it's Abe who has to do that actually. So whenever their combo is set, then they will onboard their model to Dash and then there will be like a live service running inference and then look at them. And then I think that's the one. And I think for CTX, our practice is actually something like that. So basically for now, because by the time we were doing this correctionalization, their model hasn't been onboarded to that yet. That's why we kind of like our current flow ID as like just temporary. 
+
+
+Yeah. And then I don't think it will actually break anything. And I don't think it actually matters until you actually want to see I feel Abhay will probably have to do that. 
+
+
+Yeah, and me, Tommy Rohet, when he got transferred to IG, he also has experience with this as well. He was the one, he used to be on the CTX team. 
+
+
+Oh, okay. Yeah. Interesting. And why he moved? A lot of people got moved because of the reorg and layoffs, so, yeah. Yeah, okay. So, yeah, so I think maybe for Dash, we can probably wait a bit, and then, because usually the FM team will do that. 
+
+
+In the model ID as a placeholder? 
+
+
+Yeah, the first few steps I can actually get into. So I have, I created chat discussions for each IG app FM. Oh, we can probably focus on apps. 
+
+
+Yeah, yeah, yeah. Katai is messaging on the, yes, yes. Katai is messaging on the IG thread right now with him as well. 
+
+
+Oh, okay. Actually, did he send me a question? 
+
+
+Oh, no, this is for Rod. Okay, yeah. Yeah, but I know is like our number one priority that we have to put our attention on. I didn't create a third for law and web, but I'll probably do that later. 
+
+
+Yeah, so I'll spend a day today doing the first few steps. I'm stuck, I can reach out. And then while I'm also doing that, I'll do the first step of DAS onboarding. And then Shali, I told- the first like official steps on the guide. No, no, DAS onboarding like it's a separate document from this one. I see but I'm kind of curious why do we want to do that I thought that's for boarding model right? 
+
+
+No, no, no. We're doing productionization for AppFM embeddings, right? The loop FM for AppFM. Embeddings or model? 
+
+
+No, no, no, not the model. The embeddings. Yeah. Right. So are you referring to any of the steps listed on the doc or no, it's a completely different thing? 
+
+
+Oh, did I, did you, let me see. Do you have this doc? It's a completely different. 
+
+
+Wait, so it's not covered in the CVS feature offering doc? I just sent it. 
+
+
+Um, This doc that Sandeep shared is for onboarding domain FM to the FM for DAS. 
+
+
+- Right, but I thought it's kind of involving steps here, no? 
+
+
+- It's gonna be in parallel. Like this onboarding percent is gonna be in sync with it. That's why it's a little bit complicated. - I see. - All this stuff applies to like anything else at Neta that you wanna authorize a feature for. - Right. Wait, then for CDX, who actually does that? CDX was like it was a me, Shanshi, Meet. There were some other support people and also people in DAS. It was a different time. Because I think when this is done, we kind of just have a model published, a temporary model being published and then bring that for online inference service and then we were just using that. So okay. I think, yeah. Yeah, because you see like all the things that actually mentioned in his doc. Yeah, I think he's actually referring to the steps on that doc. Because I just talked to me, we both agree that they were separate from this. Oh, okay. Yeah. Yeah, I know. A lot has changed since spring yeah because you see that um so basically the first step is once we set our own model we can just onboard the checkpoint and then the check it will start a service which just continuously running inference on that one um so we won't be able to do this until our bay land is at the fm combo and then so for now what we can do is we just put like a temporary So all the rest, in my opinion, they are kind of just overlap with the CKX stuff. Because it's F3 authoring and then VDS and then all those. So I'm actually not sure which DAS. 
+
+
+- I just spoke with him to me, try to see if. 
+
+
+- So does he has a step? Because for that one, I'm not quite sure, but I thought like for this one, we were just, in order. Okay. Is there a document or something that we can follow directly? Because I think for some deep stock it's like not not exactly like a runbook that we can follow exactly. The first step is different where they ask about estimation. Right so I think we can probably for now just skip that. What's the second one? Let me see. Yeah, the first step here is capacity and then. Oh, yeah, it's phase one. You go down, it says DAS side. Yeah, and then actually, they will do this because they will have to do it. When they have a finalized FM, they will avoid it to that. And then that checkpoint will be generating the source labels as well as you have them at the same time. So, and then these are basically steps here actually. Add augmentation enum. I usually think it's like things here. So augmentation enum, blah, blah, blah. So I was thinking. For that's a, didn't we need to get the enum to add to that div? if you go in that diff it's asking for the enum yeah that's that's why he meant in parallel so i guess yeah and then step through here okay yeah because if we're here then we will immediately be without the onboarded checkpoint. 
+
+
+Yeah, I think you can see. Previous steps, right? He doesn't, but... Right, I see. So we need to kind of, I think, some of these, like, for example, map the F3 model-based feature ID to augmentation in nums. I think it looks like it's exactly this step. And then if we go further down, it's F3 authoring. Then, yeah, I think F3 authoring is exactly either this step one Okay. Yeah, but he doesn't link diffs. No, no. Okay. This is all based on... Oh, so it's a bit difficult, actually. Yeah, because I was under the impression that these steps complement with the steps that are, like, different diffs for the authoring and the subsequent steps. I think he was... This is actually the feature authoring project. So we should just, like, follow one side, but I think... Maybe I have to call to try to link for each of these steps. Try to look for the relevant steps over there. 
+
+
+Oh, he doesn't link steps. No. Oh. So do we still have to wait for, or I can message Abby right now regarding? 
+
+
+No, I think we don't have to wait for him. Because I remember that we can actually proceed several steps without that one. So yeah, it doesn't matter. But for the phase one on the DASM way, we do need him to. We kind of just need to create, define a container and then the inside is empty. So we kind of need the model checkpoint once we want to populate the container. But if, like for now, we kind of just want to create a container by itself. 
+
+
+Yeah, that was my understanding for the first few seconds. We can't verify if something is working. Right, we won't know actually for the first few seconds. 
+
+
+Yeah, and then that comes up to my other question regarding the names. Names don't show up until 2C or 2B. Did you actually try looking into which gifts contain vowels? 
+
+
+Yeah, I talked to Matt, and he mentioned 2B and 2C. That's where we will get the names for the workplace posts to sign up. 
+
+
+I see, so you mean for the future proposal? 
+
+
+Yeah. So one thing we can do is that we kind of just settle the name now and make sure that we were using those names when we were drafting these deeds. Then we kind of submit the same within the future proposal or on the other side we can okay we can kind of do this first and then do the proposal yeah yeah that's why i was going back and forth between the two but at least i know right now for the first thing i can do is get started on the capacity get started on the first few steps just building an empty container based on the flow job that we have yeah i think you can probably you Yeah. I don't think it will cause any problem. 
+
+
+No. Yeah, so I think it's going to be fine. But Abhay needs to do phase one after they're finished with the combo. I think he actually mentioned that yesterday because when we were asking that, "Ulu, do you plan to onboard the model onto DAS?" He said he will do that within two weeks. Okay. So I think that's actually what DAS onboard is. 
+
+
+Yeah, and he and I are scheduled to meet tomorrow. Yeah. And then what you do here is that you specify that model and then you say you want to grab that specific output sensor and then it kind of just flows through. 
+
+
+- Okay. Okay, I will-- 
+
+
+- If you need my help, just let me know. - Yeah. - Yeah, so we can start drafting these steps. I think we can go all the way to probably just B. I think B is probably need to wait for release or something. Yeah, one day after the DSL landed. So we can probably cut it. Okay, yeah. Yeah, and then for the Sandeep stock, I actually have no idea. Yeah, because it has a lot of like... It looks claw-generated. Yeah. I don't know how to use it, to be honest. Yeah. Oh, he does. It has this. So maybe at each step we kind of want to refer to the information from the both sides. Just let me know if you need help. I'll put this as a top priority for today. Or maybe we can just, do you know what other prerequisite there, like what information we need together? So for submitting the PhD proposal, if the standard process is the same, the table which we have, just like estimating gains, like I'm looking at Mead's post and when he submitted it, like what was his hypothesis. I see. I think he said we currently don't have that. I think in his post he put the capacity cost. I didn't see that specification in the portal when you submit the request. What was needed was the names and that's when I was stuck and realized, 'cause the names don't come up till that step. But I think names are specified, I ask. It's not auto-generated. Not fully, but part of it is. Oh, okay. Is it inferable? Does it contain hash? No, it doesn't contain any hash. So Meet mentioned, I originally thought it was from the backfill process because the names look similar, but it turned out it wasn't. It comes up in steps 2C and 2B that get generated. Part of it is what we define, and part of it is like a script generates. 
+
+
+Okay. Is it something that we can refer from, right? on CTX and Look.fm? I don't think either of us knew how it was done. 
+
+
+There's no pattern? 
+
+
+No, because we only did this once. 
+
+
+Omni.fm, is it? 
+
+
+Omni.fm. I think they went through this. I hope so. I think so. I guess people didn't know if there was like a difference for the domain.fm, like how the process, because every time I ask about help for domain.fm, a lot of people mention they don't know the process. Right. Actually, . Okay. So, okay. So you mentioned feature names, right? Anything else for the proposal? I can try to gather those and once they are ready, we can file the proposal and then at the same time we can . Assuming we have a way to know the feature names and submit. Then that's it? Is it just feature names? 
+
+
+Well, for submitting the proposal, yeah. But to do that, you need to do the first few steps that we saw in the doc. 
+
+
+You mean the capacity funding part? 
+
+
+Well, I mean, not that specifically. Like the first few, like step one and step two A and two B. 
+
+
+Oh, you mean in order to get the feature name? 
+
+
+Yeah, however it's generated. I can look into just this feature name part and then see whether we can kind of resolve it in advance. And then... When I clicked on that link, let me just check. Because all I saw was... What happened to that comment that I submitted? Where did it go? There could be a question about cost and let me see. I'm just looking at the very old guideline post. We're not doing feature logging. Future logging there's like questions about resource account but I don't think that applies to us. 
+
+
+Not currently, no. So I think I know what to do for the first few days for App FM. For the experiments I spent this morning trying to understand the results, there is any game but I'm not sure if we're like past the minimum threshold and they yeah and they just posted a new by itself it doesn't matter because we won't launch it by itself so we will kind of just bundle it with the feature adding adding the feature bundle the bundle in the option and then together launch so it's okay because if you look at the results so I don't know what the net any gain is going to be because they also released a new baseline. That's fine. 
+
+
+Oh, you mean the M, right? 
+
+
+Yeah, so I guess if we're submitting for the proposal, we do have to go with their baseline updated, right? Because they also mentioned that this baseline resolves a due duplication issue. 
+
+
+Right, but I think in our case, because we are highly dependent on the side tables that we are using, so we will probably refresh their baseline. So it won't be exactly that job, but we will kind of just clone that job just to our training window, and then retrain the baseline, and then add our things in, and then on top of that. But I think most of these games will actually transfer there, so I'm not too worried. 
+
+
+Right, right. So just to backtrack, when you were doing the branch for AppFM, sorry, let me backtrack. 
+
+
+AFMI, sorry. 
+
+
+Yeah, on that branch, how did you know to make the copy of the YAML file onto that specific? 
+
+
+- Oh, sorry, let me bring up the-- 
+
+
+- So I will, I usually download their exact YAML file, so I download that specific flow, their baseline flow. 
+
+
+- Sorry, yeah. - And then modify on top of it directly. 
+
+
+- Oh, okay, I see. You copied the commit hash of that job, and then you copied the YAML file. 
+
+
+- I think there is like a meta CLI that can, you give it a flow job ID, then you say download the config, config of that flow as a YAML. And then whatever change I want to make, I just edit that local file directly. And then later I launch a job using that config. Oh, I did not know that. Yeah, I can share with you later. Because usually when we submit proposals, we clone the job and we do it on a Bento notebook. 
+
+
+Oh, so you use Bento? 
+
+
+Oh, I don't usually use Bento, yeah. Because one thing I am trying to think about is that when we submit our proposal, because we do have model changes, We do have model changes. I think all I see, because you are doing model arc changes, that's why we do have code. Because previously, we saw the arc change, we actually don't have the code. We only have config change. So that means I do have to build a package. Right. OK. So we have to submit that as well. So we're doing a feature and a model-- Adding a new feature and then model change, yes. OK. Correct. Should we clarify with them that that's two separate things or should we bundle everything into one? 
+
+
+Oh, you mean making two proposals? Probably no. No, but I don't know what their policy is. Some model investors are pretty strict and some are more lenient in terms of like, okay, you're doing a model change. Nothing else should affect. We are basically adding a feature, actually. 
+
+
+Right, but we're also doing a model change. But that model change only apply to that feature, theoretically. Although we touch the code, but effectively it should only affect our feature. 
+
+
+Right. So in terms of discussion, I think we should let them know. Because you saw how like-- 
+
+
+Yeah, we should definitely let them know that it involves some model code change, actually. 
+
+
+OK. So yeah. So I see. Yeah, because you saw how like when we were working with other teams like how they were kind of strict and careful in terms of like when we do let them know that our changes were affecting the model. It will be the same discussion with the AFMAI. They want to know, making sure that we're introducing new features, but also making model changes that that net effect is not going to be - Right, but it's like, neither of these trends will go along, right, can be evaluated along, because you don't want them to evaluate only adding a feature, and the uptrend cannot be evaluated Yeah, I feel like it basically is one chance for me. Yeah. So we should, we can clarify that in the communication with them and then ask them what they want us to. By the way, they said that it seems like they're okay with we just use offline experiments results to make the proposal. And then they said that we just need to inform the STO team. What is that? I thought STO is just, yeah. Let me read their comments. Sorry. So you can check there. So I think the first thing on that side I need to do is I need to go through the same steps you did. Or I could do it my way, but I'll copy the EML, the new baseline, and then work off the experiments there so we have an accurate NE report that-- 
+
+
+Oh, no, I think it's OK. Let's work on our new baseline for now. 
+
+
+To do new back, because we will have the backfill job finishing soon, which was the past, our previous backfill points. 
+
+
+Current instance finish, it will go up to 24 actually. So we will have a few more days. And then I will probably let it do two more like seven day instances. So for ApryFM we still have the backfill going for more days. We definitely want to do like even longer warm up. That definitely helps. Right, right. Isn't that separate from AFMAI where we're evaluating the features that we Oh, I mean like because we need the app FM to run longer so that VM can start later. So that we-- sorry, I might be getting confused. The reason why we don't need to move to a new baseline for AFMEI is because-- the reason you mentioned was because of app FM. Oh, I was thinking that eventually, because they already published their new baseline, so it's actually easy for us to just create a new baseline there, because we will need to create a new VM baseline so that we can move to the window, time window. 
+
+
+Oh I see what you're saying because the baseline that they use to train or come up with is usually like from a much earlier. Okay we can't do that earlier because we need to give a so that we have this warm-up thing running. 
+
+
+Okay I didn't think of... So I think the earliest we can do like for now our VM time window is someday in July I think it's like mid-July I don't remember exactly but I think it's July 11th to July 16th around there so basically it's the last seven days that we have the back-to-date for and then because our So we can actually get even later. And then the later, the better for us, actually, because we already see that when we move the warm-up time from 10 days to 30 days, it's a lot better already. So we would like to kind of push even later. But the thing is that we are still waiting for the backfill. And then the backfill is kind of bottlenecked by is waiting for the FM, actually. So we need the FM to run those days. And then we can backfill those. And then VM can use that time here. I see, okay. I didn't think about that before. So their recent baseline, they train for July 11th. That's still... 
+
+
+Yeah, that's exactly clashed with our current time window, actually. I see, okay. So this July 11th, we only have 30 days or more. I think we would like to use even longer. That's why I think if you existing like you don't have to rebate because later we will have to do another round anyway so for that new round we will make sure to use a later time window they probably something in august depending on whether our app fm can actually progress that far like progress all the way to august but if it can't then i will probably want to use august first two weeks So in that case, I will take their new latest baseline and I will retrain it and then for the first two weeks in August without our feature at nano-parachanges, that's basically our baseline. And I will base on that baseline, adding our changes as well as like your arc changes and then just do that. Because eventually, whenever, like I think from later, whenever we add our feature, we want to bundle in your arc change, right? So because there's no point of like, Yeah, just one. I'm not sure what they mean by duplicate embedding issue, if it affects our... 
+
+
+Which avoids the non-duplicate... 
+
+
+Yeah, that's the only other factor. I don't know what changes they made in this new baseline that... 
+
+
+I think it should be update the baseline ID to which avoids the non... 
+
+
+I will post a message hoping that is in effect but I'll continue on with the burn patch. 
+
+
+- If you have more things to add. 
+
+
+- Yeah, I know when we have to submit, I'll build the package and the, the one single Python file that'll make the changes, I know how to do that. 
+
+
+- Right, so it's probably similar to FM, right? Because you already made the FM proposal. 
+
+
+- Yeah, yeah. - So it's probably similar. - Okay, and then we can communicate with them about the parchment feature, making sure they know, 'cause usually when, what I was told by me and by the team when I came is that each time you do changes, it has to be very incremental. I haven't heard anything like feature and model changes in one go before. We are only doing one . Yeah, yeah, yeah. Because that model change is actually only for that new feature. So I think they can get that. And that reminds me, for the feature authoring, did we decide to go with FSQ and for, or do we also want to like? Just do FSQ info. We already verified. 
+
+
+Okay yeah so let's go with m4 okay yeah so a lot of things for app fm at least i know where to get started and continue off of uh right so about the ark experiment results uh do you have anything specific that you want to talk about uh you already have like a best combo that you think we can adopt yeah so if my understanding is correct if we remove omni fm and add um That's why I think likely we will kind of just add on top of it. Yeah, then the gain looks, it will pass the threshold, but I'm kind of focusing on the domain only one because that's where we're like, our focus is on like, where it should be. It's not as beneficial in terms of like what I thought it would be like below the threshold. So right now on the with future trends. Yeah I thought this one, let me go, sorry, right now this is with OmniFM, DomainFM, it's below the threshold. This is likely. What do you mean by threshold? So their threshold in their meeting that they had mentioned, the requirement is? Minimum 0.05, right? Any, so it needs to pass this. But that's fine because we were first at the feature which is 0.05 by itself already And then on top of that, we will add another either 0.2, 0.02, or 0.03. So together, our change will be 0.07 or 0.08, around there. And then that's our full change. And then that's what we are proposing, actually. OK. So if I'm looking at the numbers, it's-- I should go with this one instead of the domain only one. Exactly. Okay. Right. Because we will be, so basically our baseline is with OmniFM. And what we are proposing is we are proposing this new feature. And then, yeah, and then this new feature will go in with this new, like, this new arc, basically. And then this too will be one change, basically. And then its gain is in total around... 0.08 and then they don't have to know that actually 0.05 is coming from the feature itself while the 0.03 is actually coming from the archange they don't have to know that they just know that this whole thing is 0.08. I think the only question I thought we were deprecating OmniFM and that's why we only wanted to focus on I think they were kind of saying that, but if we can't actually make up the loss, then we will have to keep it. Because when we remove that, when we ablate OmniV4, there is like a dramatic loss, and then we can't make it up. So definitely we can't remove it. So for now, I think we will just add on top of it, and then we will see later. 
+
+
+Okay, that's why Kenny made that OmniFM diff. If my understanding was correct, did I share that? Let me just see if it's not there. I think I said it in a meeting. Sorry, let me go one more up. Where's Tenny's? Yeah, here it is. Das, he submitted this. What is this? Log, B5 tables, label, both B5 labels to MAI. Yeah, because they need to use an OmniFM generated soft labels to And I think the new Python will still be there, v4 as well, until at some point we are able to replace it. But for now, we can't because there will be a dramatic loss. 
+
+
+Okay. Yeah. So in that case, if I'm understanding the numbers right, what we have, like, with one configuration, we have, it's already past the threshold enough. 
+
+
+Exactly. So that's why, like, I think previously we are, like, only, like, around, like, 0.05. Like, when we were at 10-day warm-up, we have no game, basically. On top of our new Python, we are, like, neutral completely. And then once we move to 30-day warm-up, which is basically we are moving the FM training window a bit later so that it gives FM more time to actually ramp up. So we have longer sequence and that's why it has better quality embeddings. And then we're doing that 30-day warm-up, we already see like around 0.05, but still not That's why your app changes matter. And then on top of that, it can apply like around like 0.03 or 0.02. So in the end, we will be around 0.08. And then hopefully, like because now it's at 30-day warm-up. As I said, I'm kind of still trying to see whether we can do like further shifts of VM training to even later. In that case, the warm-up time can probably increase to for 50 days or even 60, just like on the FM. So I expect that will kind of give us some, additional DNA as well. So in total, I think I'm kind of trying to end for like 0.1, around that, 0.1. And I think the arc change is very critical because without that, I don't think we're able to make it. So we'll just like funnel them together, basically. 
+
+
+Okay. So I could spend more time on arc change, but in terms of priority, the DAS and the production is first, then the arc changes, if we can do more. 
+
+
+Exactly, exactly. Because I think I read your graph, it's around like 0.2, right? For the domain only, yes. Let me just check again. Yeah. Or the table as well um i guess the trajectory i think it probably needs more days right it's still like trend trending down i don't know why it's like that but anyway we don't have more uh side table back through data that's why we can't go further but yeah but i think it's six days but they want they want to see 28 right so it's around at least 0.02 right no uh let me just look For the domain only, yes. But for the-- For the domain only. That's the end value. Wait, wait, wait. Am I writing the right graph? It's this one, right? Isn't it? If you scroll up. Sorry. That's anyone and this is-- Right? What graph am I looking at? Mm-hmm. Yeah, this one is okay. And this one is always neutral, I know. Because it's the case for everyone. 0.2 is the NE30. Oh, this is 0.04. Yeah. If you scroll down, it says 0.0. Right, right, exactly. That's why I think... It continues going down or even it kind of bounce back, it's still okay. I think it's around 0.02, like minimum. So that's why it's pretty good. Like our base is just like 0.05. So we'll be able to add on top like more than 50% is pretty good. 
+
+
+Okay. That was a lot to take in, but I think, okay. Okay, so I think for AppFM I have a better understanding and where we are and what we need to do next. For Law FM, if I'm understanding-- - Yeah, so if you are doing more up changes, just continue to use this step. We don't have to do it next. - Yeah. On a different topic for our Law FM, Eric is suggesting that we do onboarding for other domain. 
+
+
+- Yeah, I don't know. Do we have, yeah, I think we can try. I can help you on the future offering so that you will have some benefits to onboard more and move on to more FM. I think because we've done it so many times, I know what to do. It's just a matter of GPUs, ChronoShocks. The good thing about, I suppose those FM's will be even smaller than low FM, right? Because low FM is kind of the biggest with these scopes. Wasn't IG the biggest? 
+
+
+Oh no, I mean Eric, right? I think you were talking about Eric, right? Eric from Longfam. So that's why I thought, are you talking about him because he was just mentioning that he would like to start the conversation about bringing the autoencoder onto more FMs. 
+
+
+Yes. Right. And I suppose those FMs are not IG or Web or APP. It's probably all the FMs that Eric is working with. 
+
+
+Yes. And with IG. Work on and then for low FM it's actually already small enough to fit on A100 which is exactly the hardware that you were using to trend this when you trend this there's no way right it's like when it's up then it starts to yield that's why I was thinking that for those upcoming new FM that will be to onboard AE2 it will probably be exactly just like no no more waiting because that's also the case for the current low fm training that we are running right now that low fm that a junior he's working on the backfield and the reason that he's able to work on the backfield is because that low fm already progressed all the way to the current actually and then it's running that fast is because it's using a 100 so there is no way so i was saying that all the fms that eric was thinking about is hopefully it will be more, at least like more presence when you are working on that, yeah. 
+
+
+- Okay, yeah, that wouldn't be like too worrisome for our bandwidth. Like my bandwidth is pretty high. If we can do it, we can do it. And then I guess the only matter is like what I was talking with Shelly with regards to resources for DAS and if there is funding and like there's support, then I think we can do it. 
+
+
+- Yeah, yeah, so I think for, but I think the highest priority right now is to like add. 
+
+
+- Yeah, yeah. So I will also help you with those steps. So just let me know what you are working on and I can come and just tune in and then send you the link. - Yeah. - So if you look up. Yeah, okay. So on the app side, as I said, so from the app side, or you think it's done, it's also okay because I think it's already good enough. But if you have more things to try out, just feel free. - I think in terms of probably I'll focus on the feature stuff, but if I have time, I will, 'cause I generally want to-- 
+
+
+- Yeah, you can only just talk some experiments and then see. And then on my side, so I will do is that I will continue to push forward the app app and just make sure it kind of goes forward. And then once it kind of covers more days, baseline announced. So I will basically refresh that baseline and then kind of rebase all the things that we have right now onto that. And then by then you can kind of shift your experiments onto that. But I don't think that will happen soon. Probably in one or two weeks. Okay. And then WebFM backlink is still going on. Then IGFM. We already discussed about that. Yeah, I'm kind of stuck. But I'm trying to, I'm kind of just doing all those new Yeah, I know we're over time, but just two other things. Did we want to continue on with Meet on the proposals that you did for AFDC? So remember the discussion we had with Meet regarding cross-deposals and do we want to stay in touch with him since he already submitted? Let me just share the diff. Just to keep track of the influence for Loop FM. Where is that? Where is the... I remember sharing it recently. Yeah, right here. Him and AFDC. He submitted Loop FM related proposals. Oh, AFDC is... Yeah. Yeah, do we want to monitor to like get an understanding for AFTC? - I don't know. - I would talk to Charlie actually at Ford. So I can chat with him. So you are saying that it's mostly like, we probably don't need to do any actual work, but we kind of wanna be involved so that eventually we can plan something from there. 
+
+
+- That and just like getting an understanding of all the v0 experience. I know he's doing the work for that, but I think we also need to know like for the v0, it will help us collect data points. 
+
+
+Oh yeah, definitely. And then I saw, okay, he is actually proposing to two VMs, so FCC and HIM. Yeah. Okay, yeah. So you think we should, yeah, I would try with Charlie, and maybe we should maybe think up with him like every two weeks. But we kind of need to have a topic piece in couple of things. Yeah, I don't know how to say it, because I was also asked the others how to like formulate this question. Like if you're the owner of, let's say, Loop FM, and I don't know how this discussion usually goes, but we do need to have some kind of insight in terms of monitoring, so that way we know the effects. What they're doing with the technology that we're prior to. 
